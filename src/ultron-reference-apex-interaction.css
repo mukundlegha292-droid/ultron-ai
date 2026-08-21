@@ -1,0 +1,16 @@
+/* ULTRON reference apex interaction finish */
+.shell.is-listening .ultron-avatar{filter:drop-shadow(0 0 22px rgba(95,233,255,.78)) drop-shadow(0 0 78px rgba(116,69,255,.3));}
+.shell.is-listening .avatar-glow{opacity:1;transform:scale(1.04)}
+.shell.is-listening .face-stage .globe-a{animation-duration:14s}
+.shell.is-listening .face-stage .globe-b{animation-duration:10s}
+.shell.is-listening .face-stage .globe-c{animation-duration:7s}
+.shell.is-processing .ultron-avatar{filter:drop-shadow(0 0 26px rgba(165,101,255,.72)) drop-shadow(0 0 84px rgba(61,211,255,.3));}
+.shell.is-processing .avatar-scanline{animation-duration:1.1s;opacity:.95}
+.shell.is-processing .core-platform{filter:drop-shadow(0 0 20px rgba(92,225,255,.5));}
+.command-center .mic-button:focus-visible,.quick-grid button:focus-visible,.sidebar nav button:focus-visible,.chat-input input:focus-visible{outline:1px solid rgba(108,229,255,.8);outline-offset:2px}
+.command-center .mic-button:active{transform:scale(.992)}
+.quick-grid button:active,.sidebar nav button:active{transform:translateY(0) scale(.985)}
+.chat-input:focus-within{border-color:rgba(92,221,255,.5);box-shadow:0 0 20px rgba(56,199,255,.1),inset 0 0 18px rgba(56,199,255,.04)}
+@media (prefers-reduced-motion: reduce){
+  .shell.is-listening .face-stage .globe-a,.shell.is-listening .face-stage .globe-b,.shell.is-listening .face-stage .globe-c,.shell.is-processing .avatar-scanline{animation:none!important}
+}
