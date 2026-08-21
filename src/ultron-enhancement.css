@@ -1,54 +1,61 @@
 /* ULTRON reference-screen refinement layer */
 .shell{isolation:isolate}
-.shell .core-panel{box-shadow:inset 0 0 108px rgba(27,174,255,.08),inset 0 1px rgba(173,237,255,.105),0 0 52px rgba(25,129,208,.15)}
-.shell .core-panel:before{content:"";position:absolute;inset:7px;border:1px solid rgba(81,210,255,.17);border-radius:7px;pointer-events:none}
-.shell .core-panel:after{content:"ULTRON CORE // ACTIVE";position:absolute;top:9px;left:50%;transform:translateX(-50%);font:700 6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:rgba(113,211,255,.6);pointer-events:none}
-.face-stage{box-shadow:inset 0 0 54px rgba(40,192,255,.06);position:relative;isolation:isolate}
-.face-stage:before{content:"";position:absolute;inset:5%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 7%,rgba(89,215,255,.27) 7.5%,transparent 8.2% 21%,rgba(168,91,255,.24) 21.5%,transparent 22.3% 41%,rgba(89,215,255,.23) 41.7%,transparent 42.5% 63%,rgba(168,91,255,.21) 63.7%,transparent 64.5% 81%,rgba(89,215,255,.18) 81.4%,transparent 82%);animation:spin 13s linear infinite;mask-image:radial-gradient(circle,transparent 0 45%,#000 46% 54%,transparent 55%);pointer-events:none}
-.face-stage:after{content:"";position:absolute;width:62%;height:62%;border-radius:50%;border:1px solid rgba(101,224,255,.19);box-shadow:0 0 58px rgba(66,206,255,.09);transform:rotateX(68deg);animation:horizon 4.6s ease-in-out infinite;pointer-events:none}
-.core-panel .panel-hud{z-index:8;text-shadow:0 0 8px rgba(85,214,255,.4)}
-.core-panel .panel-hud:before{content:"";display:inline-block;width:4px;height:4px;margin-right:5px;border:1px solid rgba(95,222,255,.72);box-shadow:0 0 8px rgba(95,222,255,.42);vertical-align:middle}
-.core-panel .panel-hud.right:before{border-radius:50%;background:rgba(95,222,255,.62)}
+.shell .core-panel{box-shadow:inset 0 0 112px rgba(27,174,255,.082),inset 0 1px rgba(173,237,255,.11),0 0 54px rgba(25,129,208,.16)}
+.shell .core-panel:before{content:"";position:absolute;inset:7px;border:1px solid rgba(81,210,255,.18);border-radius:7px;pointer-events:none}
+.shell .core-panel:after{content:"ULTRON CORE // ACTIVE";position:absolute;top:9px;left:50%;transform:translateX(-50%);font:700 6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:rgba(113,211,255,.61);pointer-events:none}
+.face-stage{box-shadow:inset 0 0 56px rgba(40,192,255,.065);position:relative;isolation:isolate}
+.face-stage:before{content:"";position:absolute;inset:4.5%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 6%,rgba(89,215,255,.28) 6.6%,transparent 7.4% 19%,rgba(168,91,255,.25) 19.7%,transparent 20.5% 38%,rgba(89,215,255,.24) 38.8%,transparent 39.6% 58%,rgba(168,91,255,.22) 58.7%,transparent 59.5% 77%,rgba(89,215,255,.2) 77.7%,transparent 78.5% 88%,rgba(171,96,255,.16) 88.6%,transparent 89.3%);animation:spin 12.5s linear infinite;mask-image:radial-gradient(circle,transparent 0 44%,#000 45% 55%,transparent 56%);pointer-events:none}
+.face-stage:after{content:"";position:absolute;width:63%;height:63%;border-radius:50%;border:1px solid rgba(101,224,255,.2);box-shadow:0 0 60px rgba(66,206,255,.1);transform:rotateX(68deg);animation:horizon 4.4s ease-in-out infinite;pointer-events:none}
+.core-panel .panel-hud{z-index:8;text-shadow:0 0 8px rgba(85,214,255,.42)}
+.core-panel .panel-hud:before{content:"";display:inline-block;width:4px;height:4px;margin-right:5px;border:1px solid rgba(95,222,255,.75);box-shadow:0 0 8px rgba(95,222,255,.44);vertical-align:middle}
+.core-panel .panel-hud.right:before{border-radius:50%;background:rgba(95,222,255,.64)}
 .core-panel .panel-hud.left{bottom:10px}.core-panel .panel-hud.right{bottom:10px}
-.core-panel .panel-hud.left:after{content:" / SCAN ACTIVE";color:rgba(92,191,229,.42)}
-.core-panel .panel-hud.right:after{content:" / SECURE";color:rgba(92,191,229,.42)}
-.ultron-avatar{width:min(340px,76%);filter:drop-shadow(0 0 22px rgba(55,219,255,.48)) drop-shadow(0 0 78px rgba(111,54,255,.21));transform-origin:center center;will-change:transform,filter}
-.ultron-face-svg{filter:contrast(1.12) saturate(1.14)}
-.avatar-glow{inset:4% 4% 1%;background:radial-gradient(circle at 50% 45%,rgba(77,228,255,.31),rgba(139,66,255,.15) 43%,transparent 69%);filter:blur(27px)}
-.avatar-scanline{top:7%;animation:scan 2.15s linear infinite}
-.core-platform{bottom:2%;width:70%;opacity:1;will-change:transform,filter}
-.core-platform:before{content:"";position:absolute;left:50%;bottom:13px;width:86%;height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(92,224,255,.6),transparent);box-shadow:0 0 18px rgba(83,219,255,.4)}
-.core-platform:after{content:"";position:absolute;left:50%;bottom:6px;width:42%;height:1px;transform:translateX(-50%);background:rgba(183,103,255,.4);box-shadow:0 0 12px rgba(170,93,255,.28)}
-.face-stage .globe,.face-stage .scan-grid{will-change:transform,opacity,filter}.face-stage .globe-a{border-color:rgba(89,214,255,.21)}.face-stage .globe-b{border-color:rgba(126,224,255,.2)}.face-stage .globe-c{border-color:rgba(181,108,255,.28)}.face-stage .scan-grid{opacity:.97}
-.face-stage .globe-a:before{animation:globeLat 8s ease-in-out infinite}.face-stage .globe-a:after{animation:globeLong 10s ease-in-out infinite}
+.core-panel .panel-hud.left:after{content:" / SCAN ACTIVE";color:rgba(92,191,229,.44)}
+.core-panel .panel-hud.right:after{content:" / SECURE";color:rgba(92,191,229,.44)}
+.ultron-avatar{width:min(344px,77%);filter:drop-shadow(0 0 23px rgba(55,219,255,.5)) drop-shadow(0 0 82px rgba(111,54,255,.22));transform-origin:center center;will-change:transform,filter}
+.ultron-face-svg{filter:contrast(1.13) saturate(1.15)}
+.avatar-glow{inset:3% 3% 0;background:radial-gradient(circle at 50% 45%,rgba(77,228,255,.32),rgba(139,66,255,.16) 43%,transparent 69%);filter:blur(28px)}
+.avatar-scanline{top:6.5%;animation:scan 2.05s linear infinite}
+.core-platform{bottom:2%;width:71%;opacity:1;will-change:transform,filter}
+.core-platform:before{content:"";position:absolute;left:50%;bottom:13px;width:88%;height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(92,224,255,.62),transparent);box-shadow:0 0 19px rgba(83,219,255,.42)}
+.core-platform:after{content:"";position:absolute;left:50%;bottom:6px;width:44%;height:1px;transform:translateX(-50%);background:rgba(183,103,255,.42);box-shadow:0 0 13px rgba(170,93,255,.3)}
+.face-stage .globe,.face-stage .scan-grid{will-change:transform,opacity,filter}.face-stage .globe-a{border-color:rgba(89,214,255,.22)}.face-stage .globe-b{border-color:rgba(126,224,255,.21)}.face-stage .globe-c{border-color:rgba(181,108,255,.29)}.face-stage .scan-grid{opacity:.98}
+.face-stage .globe-a:before{animation:globeLat 7.5s ease-in-out infinite}.face-stage .globe-a:after{animation:globeLong 9s ease-in-out infinite}
 .ultron-face-svg path{vector-effect:non-scaling-stroke}
-.is-listening .ultron-avatar{filter:drop-shadow(0 0 32px rgba(104,231,255,.96)) drop-shadow(0 0 100px rgba(142,58,255,.38))}
-.is-listening .face-stage:after{animation-duration:1.45s;border-color:rgba(178,95,255,.46)}
-.is-processing .core-panel:after{content:"ULTRON CORE // PROCESSING";color:rgba(173,122,255,.82)}
-.is-processing .face-stage:before{animation-duration:4.2s}
-.is-processing .core-panel{animation:processingPanel .86s ease-in-out infinite}
-.is-processing .ultron-avatar{animation:float .86s ease-in-out infinite,neuralFlash .68s ease-in-out infinite}
-.is-processing .core-platform{animation:platformPulse .7s ease-in-out infinite}
-.sidebar{box-shadow:inset 0 0 36px rgba(25,153,222,.032),0 0 32px rgba(17,98,177,.09)}
+/* ULTRON facial energy details */
+.ultron-face-svg path:nth-of-type(1){animation:faceBreath 4.2s ease-in-out infinite}
+.ultron-face-svg path:nth-of-type(4){animation:eyeFlicker 3.4s steps(1,end) infinite}
+.ultron-face-svg path:nth-of-type(5){animation:noseGlow 3.8s ease-in-out infinite}
+.is-listening .ultron-avatar{filter:drop-shadow(0 0 34px rgba(104,231,255,.98)) drop-shadow(0 0 104px rgba(142,58,255,.4))}
+.is-listening .face-stage:after{animation-duration:1.35s;border-color:rgba(178,95,255,.48)}
+.is-processing .core-panel:after{content:"ULTRON CORE // PROCESSING";color:rgba(173,122,255,.84)}
+.is-processing .face-stage:before{animation-duration:4s}
+.is-processing .core-panel{animation:processingPanel .82s ease-in-out infinite}
+.is-processing .ultron-avatar{animation:float .82s ease-in-out infinite,neuralFlash .64s ease-in-out infinite}
+.is-processing .core-platform{animation:platformPulse .66s ease-in-out infinite}
+.sidebar{box-shadow:inset 0 0 38px rgba(25,153,222,.034),0 0 34px rgba(17,98,177,.1)}
 .sidebar nav button:hover,.quick-grid button:hover,.suggest:hover,.power-card:hover{transform:translateY(-1px)}
 .sidebar nav button,.quick-grid button,.suggest,.power-card{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
-.command-center{box-shadow:inset 0 0 48px rgba(27,173,255,.052),0 0 36px rgba(15,103,188,.125)}
-.mic-button{border-radius:7px;position:relative;overflow:hidden}.mic-button:before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px dashed rgba(92,220,255,.23);animation:spinReverse 8s linear infinite}.mic-button:after{content:"";position:absolute;left:8%;right:8%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(88,219,255,.38),transparent);box-shadow:0 0 20px rgba(82,218,255,.23)}.mic-core{position:relative;z-index:2}
-.waveform span{animation-duration:.9s}.is-listening .waveform span{animation-duration:.33s}.is-listening .voice-status{box-shadow:inset 0 0 36px rgba(53,209,255,.12),0 0 28px rgba(56,205,255,.1)}.is-listening .mic-core{animation:micPulse .82s ease-in-out infinite;box-shadow:0 0 46px rgba(67,203,255,.95),inset 0 0 25px rgba(84,223,255,.34)}.is-listening .mic-button:before{animation-duration:2.8s}
-.system-chip b{animation:onlineGlow 1.8s ease-in-out infinite}.clock{min-width:73px}
-.footer-strip{flex:0 0 24px;display:flex;align-items:center;justify-content:center;gap:4px;position:relative;z-index:5;border-top:1px solid rgba(83,177,255,.18);background:rgba(2,7,14,.98);color:#55728d;font-size:6px;letter-spacing:.14em;text-transform:uppercase}.footer-strip strong{color:#7fa4c0;font-weight:600}
-.card-title{font-weight:700;text-shadow:0 0 9px rgba(74,206,255,.1)}.panel-hud{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.core-card h2{letter-spacing:.03em;text-shadow:0 0 13px rgba(109,225,255,.14)}
-.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{position:relative;backdrop-filter:blur(11px)}
-.core-card:before,.metrics-card:before,.modules-card:before,.summary-card:before,.chat-card:before,.command-center:before,.quick-card:before,.activity-card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(90deg,transparent 0 9%,rgba(88,210,255,.042) 9.2%,transparent 9.5% 90.5%,rgba(88,210,255,.034) 90.8%,transparent 91%)}
-.core-card:after,.metrics-card:after,.modules-card:after,.summary-card:after,.chat-card:after,.command-center:after,.quick-card:after,.activity-card:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;border-top:1px solid rgba(98,216,255,.085);border-bottom:1px solid rgba(98,216,255,.05);mask-image:linear-gradient(90deg,transparent 0 7%,#000 8% 92%,transparent 93%)}
+.command-center{box-shadow:inset 0 0 50px rgba(27,173,255,.054),0 0 38px rgba(15,103,188,.13)}
+.mic-button{border-radius:7px;position:relative;overflow:hidden}.mic-button:before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed rgba(92,220,255,.24);animation:spinReverse 7.5s linear infinite}.mic-button:after{content:"";position:absolute;left:7%;right:7%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(88,219,255,.4),transparent);box-shadow:0 0 21px rgba(82,218,255,.24)}.mic-core{position:relative;z-index:2}
+.waveform span{animation-duration:.86s}.is-listening .waveform span{animation-duration:.31s}.is-listening .voice-status{box-shadow:inset 0 0 38px rgba(53,209,255,.13),0 0 30px rgba(56,205,255,.11)}.is-listening .mic-core{animation:micPulse .78s ease-in-out infinite;box-shadow:0 0 48px rgba(67,203,255,.98),inset 0 0 26px rgba(84,223,255,.36)}.is-listening .mic-button:before{animation-duration:2.5s}
+.system-chip b{animation:onlineGlow 1.7s ease-in-out infinite}.clock{min-width:73px}
+.footer-strip{flex:0 0 24px;display:flex;align-items:center;justify-content:center;gap:4px;position:relative;z-index:5;border-top:1px solid rgba(83,177,255,.19);background:rgba(2,7,14,.985);color:#55728d;font-size:6px;letter-spacing:.14em;text-transform:uppercase}.footer-strip strong{color:#7fa4c0;font-weight:600}
+.card-title{font-weight:700;text-shadow:0 0 9px rgba(74,206,255,.11)}.panel-hud{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.core-card h2{letter-spacing:.03em;text-shadow:0 0 13px rgba(109,225,255,.15)}
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{position:relative;backdrop-filter:blur(12px)}
+.core-card:before,.metrics-card:before,.modules-card:before,.summary-card:before,.chat-card:before,.command-center:before,.quick-card:before,.activity-card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(90deg,transparent 0 9%,rgba(88,210,255,.043) 9.2%,transparent 9.5% 90.5%,rgba(88,210,255,.035) 90.8%,transparent 91%)}
+.core-card:after,.metrics-card:after,.modules-card:after,.summary-card:after,.chat-card:after,.command-center:after,.quick-card:after,.activity-card:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;border-top:1px solid rgba(98,216,255,.09);border-bottom:1px solid rgba(98,216,255,.055);mask-image:linear-gradient(90deg,transparent 0 7%,#000 8% 92%,transparent 93%)}
 .core-panel .corner-grid{display:none}
-.command-center h3{letter-spacing:.01em;text-shadow:0 0 13px rgba(137,218,255,.21)}.mic-button span{text-transform:uppercase;letter-spacing:.15em}
-.command-center:after{content:"QUANTUM CHANNEL // SECURE";display:block;margin-top:8px;text-align:center;font:600 5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;color:rgba(92,191,230,.4)}
-.sidebar:after{content:"AI COMMAND";display:block;margin-top:8px;padding:7px 8px;border-top:1px solid rgba(82,211,255,.12);font:600 6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em;color:rgba(101,164,198,.5);text-align:center}
-.quick-card{background:linear-gradient(180deg,rgba(6,17,30,.98),rgba(4,10,20,.94))}.activity-chart{background-size:100% 100%,14px 14px;box-shadow:inset 0 0 22px rgba(65,200,255,.042)}
-@keyframes horizon{0%,100%{transform:rotateX(68deg) scaleX(.86);opacity:.26}50%{transform:rotateX(68deg) scaleX(1.13);opacity:.86}}
-@keyframes globeLat{50%{transform:rotateX(72deg) scaleY(.88)}}
-@keyframes globeLong{50%{transform:rotateY(68deg) scaleX(.86)}}
-@keyframes micPulse{50%{transform:scale(1.115)}}@keyframes onlineGlow{50%{text-shadow:0 0 14px rgba(82,228,169,.7)}}@keyframes processingPanel{50%{box-shadow:inset 0 0 122px rgba(64,192,255,.15),0 0 64px rgba(61,168,255,.21)}}@keyframes neuralFlash{50%{filter:drop-shadow(0 0 35px rgba(92,230,255,1)) drop-shadow(0 0 108px rgba(147,67,255,.44))}}@keyframes platformPulse{50%{transform:translateX(-50%) scale(1.13);filter:brightness(1.55)}}@keyframes modulePulse{50%{text-shadow:0 0 12px rgba(90,231,194,.56)}}
-@media (max-width:1100px){.workspace-main{grid-template-columns:130px minmax(220px,1fr) 150px}.workspace{grid-template-columns:minmax(0,1fr) 210px}.topbar{grid-template-columns:200px 1fr 260px}.top-center small{display:none}.ultron-avatar{width:min(314px,75%)}}
-@media (max-width:900px){body{overflow:auto}.topbar{grid-template-columns:1fr auto;height:auto;min-height:64px;padding:9px 14px}.top-center{display:none}.top-right{gap:6px}.window{display:none}.app-grid{grid-template-columns:1fr;padding:8px}.sidebar{order:2}.workspace{grid-template-columns:1fr}.workspace-main{grid-template-columns:1fr;grid-template-rows:auto}.left-stack,.right-stack{grid-template-rows:auto}.chat-card{grid-column:auto;min-height:190px}.core-panel{min-height:560px}.command-column{grid-template-rows:auto}.ultron-avatar{width:min(350px,77vw)}.footer-strip{display:none}}
+.command-center h3{letter-spacing:.01em;text-shadow:0 0 13px rgba(137,218,255,.22)}.mic-button span{text-transform:uppercase;letter-spacing:.15em}
+.command-center:after{content:"QUANTUM CHANNEL // SECURE";display:block;margin-top:8px;text-align:center;font:600 5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;color:rgba(92,191,230,.41)}
+.sidebar:after{content:"AI COMMAND";display:block;margin-top:8px;padding:7px 8px;border-top:1px solid rgba(82,211,255,.125);font:600 6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em;color:rgba(101,164,198,.52);text-align:center}
+.quick-card{background:linear-gradient(180deg,rgba(6,17,30,.985),rgba(4,10,20,.95))}.activity-chart{background-size:100% 100%,14px 14px;box-shadow:inset 0 0 24px rgba(65,200,255,.045)}
+@keyframes horizon{0%,100%{transform:rotateX(68deg) scaleX(.85);opacity:.25}50%{transform:rotateX(68deg) scaleX(1.14);opacity:.88}}
+@keyframes globeLat{50%{transform:rotateX(74deg) scaleY(.86)}}
+@keyframes globeLong{50%{transform:rotateY(72deg) scaleX(.84)}}
+@keyframes faceBreath{50%{filter:brightness(1.05)}}
+@keyframes eyeFlicker{0%,38%,42%,100%{opacity:1}40%{opacity:.62}}
+@keyframes noseGlow{50%{opacity:.98;filter:drop-shadow(0 0 5px rgba(165,235,255,.32))}}
+@keyframes micPulse{50%{transform:scale(1.12)}}@keyframes onlineGlow{50%{text-shadow:0 0 15px rgba(82,228,169,.72)}}@keyframes processingPanel{50%{box-shadow:inset 0 0 126px rgba(64,192,255,.16),0 0 68px rgba(61,168,255,.22)}}@keyframes neuralFlash{50%{filter:drop-shadow(0 0 36px rgba(92,230,255,1)) drop-shadow(0 0 112px rgba(147,67,255,.46))}}@keyframes platformPulse{50%{transform:translateX(-50%) scale(1.14);filter:brightness(1.6)}}@keyframes modulePulse{50%{text-shadow:0 0 13px rgba(90,231,194,.58)}}
+@media (max-width:1100px){.workspace-main{grid-template-columns:130px minmax(220px,1fr) 150px}.workspace{grid-template-columns:minmax(0,1fr) 210px}.topbar{grid-template-columns:200px 1fr 260px}.top-center small{display:none}.ultron-avatar{width:min(316px,76%)}}
+@media (max-width:900px){body{overflow:auto}.topbar{grid-template-columns:1fr auto;height:auto;min-height:64px;padding:9px 14px}.top-center{display:none}.top-right{gap:6px}.window{display:none}.app-grid{grid-template-columns:1fr;padding:8px}.sidebar{order:2}.workspace{grid-template-columns:1fr}.workspace-main{grid-template-columns:1fr;grid-template-rows:auto}.left-stack,.right-stack{grid-template-rows:auto}.chat-card{grid-column:auto;min-height:190px}.core-panel{min-height:565px}.command-column{grid-template-rows:auto}.ultron-avatar{width:min(356px,78vw)}.footer-strip{display:none}}
