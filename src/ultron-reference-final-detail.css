@@ -1,0 +1,25 @@
+/* ULTRON reference final detail pass */
+.shell{isolation:isolate}
+.core-panel{position:relative;overflow:hidden}
+.core-panel:after{content:"";position:absolute;inset:14px;border:1px solid rgba(82,218,255,.08);border-radius:14px;pointer-events:none;box-shadow:inset 0 0 44px rgba(36,174,255,.035)}
+.face-stage{position:relative;isolation:isolate}
+.face-stage:before{content:"";position:absolute;inset:4%;border-radius:50%;border:1px solid rgba(93,223,255,.08);box-shadow:0 0 40px rgba(41,185,255,.04),inset 0 0 74px rgba(83,106,255,.035);animation:refBreath 5s ease-in-out infinite}
+.face-stage:after{content:"";position:absolute;inset:12%;border-radius:50%;border:1px dashed rgba(174,105,255,.09);animation:refSpin 26s linear infinite}
+.ultron-avatar{z-index:3;transform:translateY(-6px) scale(1.045);filter:drop-shadow(0 0 28px rgba(88,231,255,.66)) drop-shadow(0 0 96px rgba(127,67,255,.31))}
+.ultron-face-svg{filter:contrast(1.17) saturate(1.18) brightness(1.045)}
+.avatar-glow{z-index:-1;inset:-2% -1% 0;background:radial-gradient(circle at 50% 45%,rgba(90,232,255,.35),rgba(123,68,255,.16) 45%,transparent 73%);filter:blur(31px)}
+.globe-a{z-index:1}.globe-b{z-index:1}.globe-c{z-index:2}
+.core-platform{z-index:4;filter:drop-shadow(0 0 17px rgba(81,225,255,.42))}
+.panel-hud{z-index:5}
+.command-center{position:relative;overflow:hidden}
+.command-center:after{content:"";position:absolute;left:7%;right:7%;bottom:9%;height:1px;background:linear-gradient(90deg,transparent,rgba(89,221,255,.28),rgba(166,100,255,.22),rgba(89,221,255,.28),transparent);box-shadow:0 0 12px rgba(75,202,255,.12)}
+.mic-button{transform:translateZ(0)}
+.mic-button:hover{transform:scale(1.012)}
+.mic-core{filter:drop-shadow(0 0 10px rgba(78,227,255,.28))}
+.quick-grid button{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.quick-grid button:hover{box-shadow:0 0 18px rgba(75,210,255,.08),inset 0 0 14px rgba(83,199,255,.035)}
+.activity-card,.summary-card,.modules-card,.metrics-card{position:relative;overflow:hidden}
+.activity-card:before,.summary-card:before,.modules-card:before,.metrics-card:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(92,218,255,.025),transparent 27%,transparent 71%,rgba(148,95,255,.025));pointer-events:none}
+@keyframes refBreath{50%{transform:scale(1.015);opacity:.86}}
+@keyframes refSpin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.ultron-avatar{transform:translateY(-4px) scale(1.02)}}
