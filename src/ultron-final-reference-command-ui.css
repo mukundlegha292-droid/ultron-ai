@@ -1,0 +1,26 @@
+/* ULTRON final command UI precision */
+.topbar{letter-spacing:.01em}
+.system-chip,.clock{box-shadow:inset 0 0 18px rgba(62,197,255,.035),0 0 16px rgba(37,137,205,.035)}
+.sidebar nav button{transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease}
+.sidebar nav button.active{box-shadow:inset 0 0 24px rgba(34,176,255,.12),0 0 20px rgba(28,168,255,.08)}
+.core-card,.metrics-card,.modules-card,.summary-card{position:relative}
+.core-card:after,.metrics-card:after,.modules-card:after,.summary-card:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 24px rgba(91,220,255,.022)}
+.core-panel{border-width:1px}
+.panel-hud{letter-spacing:.14em;text-shadow:0 0 10px rgba(88,214,255,.15)}
+.face-stage{isolation:isolate}
+.face-stage .scan-grid{opacity:.9}
+.ultron-avatar{filter:drop-shadow(0 0 22px rgba(88,228,255,.6)) drop-shadow(0 0 74px rgba(122,72,255,.22))}
+.ultron-face-svg{filter:contrast(1.21) saturate(1.17) brightness(1.03)}
+.avatar-scanline{opacity:.82;mix-blend-mode:screen}
+.core-platform{filter:drop-shadow(0 0 20px rgba(69,222,255,.34))}
+.command-center,.quick-card,.activity-card,.chat-card{position:relative}
+.command-center:before,.quick-card:before,.activity-card:before,.chat-card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(95,223,255,.025),transparent 24%)}
+.command-center .suggest{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.command-center .suggest:hover{transform:translateY(-1px);box-shadow:0 0 16px rgba(70,212,255,.08)}
+.quick-grid button{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.quick-grid button:hover{transform:translateY(-2px);box-shadow:0 0 16px rgba(77,215,255,.12)}
+.chat-input{box-shadow:inset 0 0 18px rgba(68,196,255,.03)}
+.activity-row{transition:background .18s ease,transform .18s ease}
+.activity-row:hover{transform:translateX(2px);background:rgba(74,208,255,.025)}
+.footer-strip{letter-spacing:.04em}
+@media(prefers-reduced-motion:reduce){.sidebar nav button,.command-center .suggest,.quick-grid button,.activity-row{transition:none!important;transform:none!important}}
