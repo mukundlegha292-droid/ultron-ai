@@ -1,0 +1,18 @@
+/* ULTRON command surface final — reference-safe finish */
+.command-column{isolation:isolate}
+.command-center,.quick-card,.activity-card{box-shadow:inset 0 1px rgba(159,232,255,.06),inset 0 0 34px rgba(38,174,240,.025),0 12px 30px rgba(0,0,0,.16)}
+.command-center h3{text-shadow:0 0 12px rgba(93,218,255,.1)}
+.command-center .suggest{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.command-center .suggest:hover{transform:translateX(1px);background:rgba(7,25,43,.68);border-color:rgba(86,220,255,.34);box-shadow:0 0 14px rgba(47,200,255,.08)}
+.command-center .mic-button{position:relative;isolation:isolate;overflow:hidden}
+.command-center .mic-button:before{content:"";position:absolute;inset:14% 18%;border:1px solid rgba(92,225,255,.08);border-radius:50%;box-shadow:0 0 34px rgba(62,207,255,.07);pointer-events:none}
+.command-center .mic-button:after{content:"";position:absolute;inset:24% 28%;border:1px dashed rgba(173,109,255,.12);border-radius:50%;animation:commandOrbit 10s linear infinite;pointer-events:none}
+.command-center .mic-core{position:relative;z-index:2}
+.quick-grid button{position:relative;overflow:hidden}
+.quick-grid button:after{content:"";position:absolute;left:-120%;top:0;width:70%;height:100%;background:linear-gradient(90deg,transparent,rgba(120,231,255,.08),transparent);transform:skewX(-18deg);transition:left .42s ease;pointer-events:none}
+.quick-grid button:hover:after{left:150%}
+.activity-row{transition:background .18s ease,transform .18s ease,border-color .18s ease}
+.activity-row:hover{transform:translateX(1px);background:rgba(20,72,105,.08);border-left-color:rgba(86,220,255,.2)}
+.chat-scroll{scrollbar-width:thin;scrollbar-color:rgba(79,211,255,.22) transparent}
+@keyframes commandOrbit{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.command-center .mic-button:after,.quick-grid button:after{animation:none!important;transition:none!important}}
