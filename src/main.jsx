@@ -12,7 +12,6 @@ const modules = [
 ];
 const suggested = ['Open my project folder', 'Analyze this document', 'Search on the web', 'Show system performance'];
 const quick = [['▶', 'YouTube'], ['●', 'GitHub'], ['▣', 'VS Code'], ['G', 'Google'], ['N', 'Notion'], ['D', 'Drive'], ['◉', 'WhatsApp'], ['in', 'LinkedIn']];
-
 const initialEvents = ['Voice Recognition', 'AI Processing', 'Data Sync', 'Background Tasks'];
 
 function UltronFace() {
@@ -53,10 +52,14 @@ function App() {
   const [events, setEvents] = useState(initialEvents);
   const [listening, setListening] = useState(false);
   const [chat, setChat] = useState([{ from: 'ultron', text: 'I can help you with file management, web browsing, code execution, data analysis, automation, and much more. Just give me a command.' }]);
+  const [activeNav, setActiveNav] = useState('Dashboard');
   const inputRef = useRef(null);
   const recognitionSupported = useMemo(() => typeof window !== 'undefined' && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window), []);
+  const currentTime = new Intl.DateTimeFormat('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true }).format(new Date());
+  const currentDate = new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).format(new Date()).toUpperCase();
 
   useEffect(() => inputRef.current?.focus(), []);
+
   const addEvent = (text) => setEvents((e) => [text, ...e].slice(0, 4));
   const runCommand = (value = command) => {
     const text = value.trim();
@@ -75,19 +78,19 @@ function App() {
     recognition.onerror = () => { setListening(false); addEvent('Voice channel error'); };
     recognition.onend = () => setListening(false); recognition.start();
   };
+  const quickCommand = (label) => runCommand(`Open ${label}`);
 
   return (
     <main className={`shell ${listening ? 'is-listening' : ''}`}>
       <header className="topbar">
         <div className="brand"><div className="brand-orb">◈</div><div><strong>ULTRON AI</strong><small>COMMAND SYSTEM</small></div></div>
         <div className="top-center"><strong>ULTRON AI <span>v2.0</span></strong><small>Hyper-Intelligent Platform. Your Strategic Quantum-Neural Partner.</small></div>
-        <div className="top-right"><div className="system-chip">SYSTEM STATUS <b><i /> ONLINE</b></div><div className="clock">10:30 PM<small>20 AUG 2026</small></div><div className="window">− □ ×</div></div>
+        <div className="top-right"><div className="system-chip">SYSTEM STATUS <b><i /> ONLINE</b></div><div className="clock">{currentTime}<small>{currentDate}</small></div><div className="window">− □ ×</div></div>
       </header>
 
       <div className="app-grid">
         <aside className="sidebar panel">
-          <div className="sidebar-title">ULTRON</div>
-          <nav>{navItems.map(([icon, label], i) => <button key={label} className={i === 0 ? 'active' : ''}><span>{icon}</span>{label}{i === 0 && <em />}</button>)}</nav>
+          <nav>{navItems.map(([icon, label]) => <button key={label} onClick={() => { setActiveNav(label); addEvent(`${label} module selected`); }} className={activeNav === label ? 'active' : ''}><span>{icon}</span>{label}{activeNav === label && <em />}</button>)}</nav>
           <div className="voice-status"><div className="label">VOICE STATUS</div><div className="waveform"><span/><span/><span/><span/><span/><span/><span/><span/><span/></div><strong>{listening ? 'LISTENING...' : 'STANDBY'}</strong></div>
           <button className="power-card" onClick={toggleVoice}><div>◉</div><span>ULTRON SYSTEM<small>Ready for Command</small></span></button>
         </aside>
@@ -109,13 +112,13 @@ function App() {
               <section className="card summary-card"><div className="card-title">TODAY'S SUMMARY</div><div className="summary-row"><span>Tasks Completed</span><b>12</b></div><div className="summary-row"><span>Files Analyzed</span><b>8</b></div><div className="summary-row"><span>Commands Executed</span><b>26</b></div><div className="summary-row"><span>Time Saved</span><b>2h 15m</b></div></section>
             </aside>
 
-            <section className="card chat-card"><div className="card-title">CHAT WITH ULTRON <span className="mode">LOCAL MODE</span></div><div className="chat-scroll">{chat.map((m, i) => <div className={`chat-row ${m.from}`} key={i}><span className="avatar-mini">{m.from === 'you' ? 'U' : 'U'}</span><div><b>{m.from === 'you' ? 'You:' : 'Ultron:'}</b> {m.text}</div></div>)}</div><div className="chat-input"><input value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && runCommand()} placeholder="Type your command..."/><button onClick={() => runCommand()}>➤</button></div></section>
+            <section className="card chat-card"><div className="card-title">CHAT WITH ULTRON <span className="mode">LOCAL MODE</span></div><div className="chat-scroll">{chat.map((m, i) => <div className={`chat-row ${m.from}`} key={i}><span className="avatar-mini">U</span><div><b>{m.from === 'you' ? 'You:' : 'Ultron:'}</b> {m.text}</div></div>)}</div><div className="chat-input"><input ref={inputRef} value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && runCommand()} placeholder="Type your command..."/><button onClick={() => runCommand()}>➤</button></div></section>
           </div>
 
           <aside className="command-column">
             <section className="card command-center"><div className="card-title">COMMAND CENTER</div><h3>Give me a command.</h3><button className="mic-button" onClick={toggleVoice}><div className="mic-core">◉</div><span>{listening ? 'LISTENING...' : 'Tap to speak'}</span></button><div className="small-label">SUGGESTED COMMANDS</div>{suggested.map((item) => <button className="suggest" key={item} onClick={() => runCommand(item)}>“{item}” <b>+</b></button>)}</section>
-            <section className="card quick-card"><div className="card-title">QUICK ACCESS</div><div className="quick-grid">{quick.map(([icon, label]) => <button key={label}><span>{icon}</span><small>{label}</small></button>)}</div></section>
-            <section className="card activity-card"><div className="card-title">SYSTEM ACTIVITY <span className="reset">Reset</span></div><div className="activity-chart"/>{events.map((e, i) => <div className="activity-row" key={`${e}-${i}`}><i/><span>{e}<small>{i < 2 ? 'Active' : i === 2 ? 'Active' : 'Idle'}</small></span></div>)}</section>
+            <section className="card quick-card"><div className="card-title">QUICK ACCESS</div><div className="quick-grid">{quick.map(([icon, label]) => <button key={label} onClick={() => quickCommand(label)}><span>{icon}</span><small>{label}</small></button>)}</div></section>
+            <section className="card activity-card"><div className="card-title">SYSTEM ACTIVITY <span className="reset" onClick={() => setEvents(initialEvents)}>Reset</span></div><div className="activity-chart"/>{events.map((e, i) => <div className="activity-row" key={`${e}-${i}`}><i/><span>{e}<small>{i < 2 ? 'Active' : 'Idle'}</small></span></div>)}</section>
           </aside>
         </section>
       </div>
