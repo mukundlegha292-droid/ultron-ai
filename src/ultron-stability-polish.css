@@ -1,0 +1,14 @@
+/* ULTRON stability/reference polish */
+.shell,.app-grid,.core-panel,.face-stage,.command-center{contain:layout paint style}
+.topbar,.sidebar,.left-stack,.right-stack,.command-column{isolation:isolate}
+.ultron-avatar,.core-platform,.panel-hud,.mic-button{backface-visibility:hidden;transform-style:preserve-3d}
+.ultron-avatar{will-change:transform,filter}
+.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c{will-change:transform,opacity}
+.avatar-scanline{will-change:transform,opacity}
+.command-center .mic-button::before,.command-center .mic-button::after{will-change:transform,opacity}
+.quick-grid button,.suggest,.sidebar nav button{transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease}
+.quick-grid button:hover,.suggest:hover,.sidebar nav button:hover{transform:translateY(-1px)}
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{box-shadow:inset 0 0 0 1px rgba(90,210,255,.035),0 0 24px rgba(20,100,170,.055)}
+.core-card:hover,.command-center:hover{box-shadow:inset 0 0 0 1px rgba(100,220,255,.065),0 0 30px rgba(20,120,190,.075)}
+.chat-input:focus-within{border-color:rgba(94,218,255,.28);box-shadow:inset 0 0 18px rgba(45,177,236,.05),0 0 14px rgba(38,167,228,.05)}
+@media (prefers-reduced-motion:reduce){.ultron-avatar,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c,.avatar-scanline,.command-center .mic-button::before,.command-center .mic-button::after{animation:none!important;transition:none!important}}
