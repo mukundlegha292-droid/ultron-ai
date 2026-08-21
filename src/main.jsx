@@ -13,75 +13,103 @@ function UltronFace() {
   return (
     <div className="ultron-avatar" aria-label="ULTRON robotic core">
       <div className="avatar-glow" />
-      <svg className="ultron-face-svg" viewBox="0 0 420 480" role="img" aria-label="Futuristic robotic ULTRON face">
+      <div className="avatar-grid" />
+      <svg className="ultron-face-svg" viewBox="0 0 420 520" role="img" aria-label="Futuristic metallic ULTRON face">
         <defs>
           <linearGradient id="helmet" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#d8f7ff" />
-            <stop offset="0.2" stopColor="#5faec9" />
-            <stop offset="0.48" stopColor="#123e58" />
-            <stop offset="0.7" stopColor="#6bc2df" />
-            <stop offset="1" stopColor="#071923" />
+            <stop offset="0" stopColor="#f0fcff" />
+            <stop offset="0.15" stopColor="#8ed9ef" />
+            <stop offset="0.36" stopColor="#2d6b89" />
+            <stop offset="0.52" stopColor="#0e2b3d" />
+            <stop offset="0.72" stopColor="#4c9ab9" />
+            <stop offset="0.9" stopColor="#071620" />
+            <stop offset="1" stopColor="#02090f" />
           </linearGradient>
           <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#b8efff" stopOpacity=".9" />
-            <stop offset="0.45" stopColor="#255c7a" />
-            <stop offset="1" stopColor="#07131d" />
+            <stop offset="0" stopColor="#d7f8ff" stopOpacity=".95" />
+            <stop offset="0.28" stopColor="#5e9fb8" />
+            <stop offset="0.58" stopColor="#214c63" />
+            <stop offset="1" stopColor="#06131d" />
           </linearGradient>
           <linearGradient id="jaw" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#9deaff" />
-            <stop offset=".5" stopColor="#1e526d" />
-            <stop offset="1" stopColor="#061018" />
+            <stop offset="0" stopColor="#d6f8ff" />
+            <stop offset=".25" stopColor="#70bed8" />
+            <stop offset=".62" stopColor="#214e66" />
+            <stop offset="1" stopColor="#040b11" />
           </linearGradient>
-          <radialGradient id="eye" cx="50%" cy="50%" r="70%">
+          <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#63dfff" stopOpacity="0" />
+            <stop offset=".5" stopColor="#c9f7ff" stopOpacity=".9" />
+            <stop offset="1" stopColor="#63dfff" stopOpacity="0" />
+          </linearGradient>
+          <radialGradient id="eye" cx="50%" cy="50%" r="72%">
             <stop offset="0" stopColor="#ffffff" />
-            <stop offset=".18" stopColor="#d77cff" />
-            <stop offset=".5" stopColor="#8a20db" />
-            <stop offset="1" stopColor="#21002f" />
+            <stop offset=".13" stopColor="#f5b7ff" />
+            <stop offset=".34" stopColor="#be56f0" />
+            <stop offset=".62" stopColor="#7620c7" />
+            <stop offset="1" stopColor="#180021" />
           </radialGradient>
-          <filter id="eyeGlow">
-            <feGaussianBlur stdDeviation="7" result="blur" />
+          <filter id="eyeGlow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
             <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
           </filter>
-          <filter id="metalGlow">
-            <feGaussianBlur stdDeviation="2.5" result="blur" />
+          <filter id="metalGlow" x="-30%" y="-20%" width="160%" height="150%">
+            <feGaussianBlur stdDeviation="1.8" result="blur" />
             <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+          </filter>
+          <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="11" />
           </filter>
         </defs>
 
-        <ellipse cx="210" cy="240" rx="164" ry="214" fill="rgba(36,159,214,.08)" stroke="rgba(111,227,255,.24)" strokeWidth="2" />
-        <path d="M210 18 C132 18 83 68 76 143 L89 306 C95 382 142 434 210 450 C278 434 325 382 331 306 L344 143 C337 68 288 18 210 18Z" fill="url(#helmet)" stroke="#8de7ff" strokeOpacity=".65" strokeWidth="3" filter="url(#metalGlow)" />
+        <ellipse cx="210" cy="254" rx="174" ry="226" fill="rgba(36,159,214,.05)" stroke="rgba(111,227,255,.20)" strokeWidth="2" />
+        <ellipse cx="210" cy="470" rx="94" ry="24" fill="rgba(63,212,255,.18)" filter="url(#soft)" />
 
-        <path d="M210 30 L185 72 L210 88 L235 72Z" fill="#dff9ff" opacity=".75" />
-        <path d="M143 63 L178 45 L171 118 L135 137Z" fill="url(#plate)" stroke="#63d5f4" strokeOpacity=".45" />
-        <path d="M277 63 L242 45 L249 118 L285 137Z" fill="url(#plate)" stroke="#63d5f4" strokeOpacity=".45" />
-        <path d="M105 135 L148 116 L137 192 L92 212Z" fill="#163e54" stroke="#62dfff" strokeOpacity=".35" />
-        <path d="M315 135 L272 116 L283 192 L328 212Z" fill="#163e54" stroke="#62dfff" strokeOpacity=".35" />
+        <path d="M210 24 C126 24 72 80 66 157 L78 332 C84 421 132 472 210 486 C288 472 336 421 342 332 L354 157 C348 80 294 24 210 24Z" fill="url(#helmet)" stroke="#a6efff" strokeOpacity=".80" strokeWidth="3" filter="url(#metalGlow)" />
 
-        <path d="M122 158 L177 142 L193 172 L173 205 L124 193Z" fill="#0b1722" stroke="#73dcff" strokeOpacity=".5" strokeWidth="2" />
-        <path d="M298 158 L243 142 L227 172 L247 205 L296 193Z" fill="#0b1722" stroke="#73dcff" strokeOpacity=".5" strokeWidth="2" />
-        <path d="M131 170 L171 158 L180 176 L165 188 L135 182Z" fill="url(#eye)" filter="url(#eyeGlow)" />
-        <path d="M289 170 L249 158 L240 176 L255 188 L285 182Z" fill="url(#eye)" filter="url(#eyeGlow)" />
+        <path d="M210 36 L181 85 L210 104 L239 85Z" fill="#effdff" opacity=".78" />
+        <path d="M181 48 L161 77 L168 154 L192 126Z" fill="#c9f6ff" opacity=".16" />
+        <path d="M239 48 L259 77 L252 154 L228 126Z" fill="#c9f6ff" opacity=".16" />
 
-        <path d="M210 113 L185 155 L191 244 L210 259 L229 244 L235 155Z" fill="url(#plate)" stroke="#8fe8ff" strokeOpacity=".52" strokeWidth="2" />
-        <path d="M210 135 L202 165 L210 180 L218 165Z" fill="#c7f6ff" opacity=".7" />
-        <path d="M179 201 L210 218 L241 201 L245 252 L210 274 L175 252Z" fill="#0b1a25" stroke="#69dbfb" strokeOpacity=".35" />
-        <path d="M202 205 L218 205 L224 248 L210 258 L196 248Z" fill="#2a6c8a" opacity=".8" />
+        <path d="M133 66 L178 43 L171 132 L126 153Z" fill="url(#plate)" stroke="#6ee1ff" strokeOpacity=".50" />
+        <path d="M287 66 L242 43 L249 132 L294 153Z" fill="url(#plate)" stroke="#6ee1ff" strokeOpacity=".50" />
+        <path d="M91 144 L146 118 L136 217 L83 235Z" fill="#143b51" stroke="#64ddff" strokeOpacity=".40" />
+        <path d="M329 144 L274 118 L284 217 L337 235Z" fill="#143b51" stroke="#64ddff" strokeOpacity=".40" />
 
-        <path d="M105 216 L156 219 L182 273 L161 327 L119 310 L92 264Z" fill="url(#plate)" stroke="#75e1ff" strokeOpacity=".46" strokeWidth="2" />
-        <path d="M315 216 L264 219 L238 273 L259 327 L301 310 L328 264Z" fill="url(#plate)" stroke="#75e1ff" strokeOpacity=".46" strokeWidth="2" />
+        <path d="M114 160 L178 139 L197 179 L173 216 L114 201Z" fill="#08131d" stroke="#9aeaff" strokeOpacity=".52" strokeWidth="2" />
+        <path d="M306 160 L242 139 L223 179 L247 216 L306 201Z" fill="#08131d" stroke="#9aeaff" strokeOpacity=".52" strokeWidth="2" />
+        <path d="M124 176 L171 159 L185 179 L165 197 L128 189Z" fill="url(#eye)" filter="url(#eyeGlow)" />
+        <path d="M296 176 L249 159 L235 179 L255 197 L292 189Z" fill="url(#eye)" filter="url(#eyeGlow)" />
+        <path d="M130 175 L169 165" stroke="#fff" strokeOpacity=".72" strokeWidth="2" />
+        <path d="M290 175 L251 165" stroke="#fff" strokeOpacity=".72" strokeWidth="2" />
 
-        <path d="M125 289 L178 282 L191 330 L166 375 L130 348Z" fill="#0b1b26" stroke="#6fddfc" strokeOpacity=".4" />
-        <path d="M295 289 L242 282 L229 330 L254 375 L290 348Z" fill="#0b1b26" stroke="#6fddfc" strokeOpacity=".4" />
+        <path d="M210 111 L181 165 L188 259 L210 278 L232 259 L239 165Z" fill="url(#plate)" stroke="#a1edff" strokeOpacity=".58" strokeWidth="2" />
+        <path d="M210 133 L198 172 L210 192 L222 172Z" fill="#d6f9ff" opacity=".72" />
+        <path d="M187 210 L210 224 L233 210" fill="none" stroke="url(#edge)" strokeWidth="4" />
+        <path d="M176 222 L210 240 L244 222 L248 271 L210 296 L172 271Z" fill="#081721" stroke="#6de2ff" strokeOpacity=".40" />
+        <path d="M202 225 L218 225 L225 266 L210 277 L195 266Z" fill="#2b7899" opacity=".90" />
 
-        <path d="M163 317 L210 331 L257 317 L250 389 L210 432 L170 389Z" fill="url(#jaw)" stroke="#a0efff" strokeOpacity=".55" strokeWidth="3" />
-        <path d="M174 345 L199 357 L186 385 L171 370Z" fill="#bdefff" opacity=".35" />
-        <path d="M246 345 L221 357 L234 385 L249 370Z" fill="#bdefff" opacity=".35" />
-        <path d="M181 399 L210 414 L239 399 L227 423 L210 431 L193 423Z" fill="#07131b" stroke="#79e5ff" strokeOpacity=".55" />
-        <path d="M191 403 L210 409 L229 403" fill="none" stroke="#9eecff" strokeOpacity=".45" strokeWidth="2" />
+        <path d="M90 230 L152 226 L183 284 L165 348 L110 326 L81 275Z" fill="url(#plate)" stroke="#7be5ff" strokeOpacity=".52" strokeWidth="2" />
+        <path d="M330 230 L268 226 L237 284 L255 348 L310 326 L339 275Z" fill="url(#plate)" stroke="#7be5ff" strokeOpacity=".52" strokeWidth="2" />
+        <path d="M104 253 L142 246 L157 276 L122 287Z" fill="#06202e" stroke="#64dfff" strokeOpacity=".28" />
+        <path d="M316 253 L278 246 L263 276 L298 287Z" fill="#06202e" stroke="#64dfff" strokeOpacity=".28" />
 
-        <path d="M96 247 L111 265 M324 247 L309 265 M113 347 L131 365 M307 347 L289 365" stroke="#8de9ff" strokeOpacity=".5" strokeWidth="3" strokeLinecap="round" />
+        <path d="M119 314 L177 303 L191 358 L164 404 L128 378Z" fill="#0a1d28" stroke="#7ce5ff" strokeOpacity=".46" />
+        <path d="M301 314 L243 303 L229 358 L256 404 L292 378Z" fill="#0a1d28" stroke="#7ce5ff" strokeOpacity=".46" />
+
+        <path d="M153 355 L210 342 L267 355 L258 432 L242 458 L178 458 L162 432Z" fill="url(#jaw)" stroke="#b2f3ff" strokeOpacity=".62" strokeWidth="3" />
+        <path d="M170 365 L197 374 L184 406 L165 389Z" fill="#d7f8ff" opacity=".28" />
+        <path d="M250 365 L223 374 L236 406 L255 389Z" fill="#d7f8ff" opacity=".28" />
+        <path d="M176 419 L210 435 L244 419 L232 451 L210 463 L188 451Z" fill="#061119" stroke="#83e9ff" strokeOpacity=".68" />
+        <path d="M186 423 L210 430 L234 423" fill="none" stroke="#c9f7ff" strokeOpacity=".52" strokeWidth="2" />
+
+        <path d="M69 276 L91 292 M351 276 L329 292 M88 379 L113 392 M332 379 L307 392" stroke="#a4efff" strokeOpacity=".54" strokeWidth="4" strokeLinecap="round" />
+
+        <path d="M153 462 L173 497 L193 474 L210 500 L227 474 L247 497 L267 462" fill="#0b2230" stroke="#75e2ff" strokeOpacity=".55" strokeWidth="2" />
+        <path d="M170 486 L250 486" stroke="#8de8ff" strokeOpacity=".45" strokeWidth="2" />
       </svg>
       <div className="avatar-scanline" />
+      <div className="avatar-scanline avatar-scanline-two" />
     </div>
   );
 }
@@ -98,13 +126,9 @@ function App() {
     []
   );
 
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  useEffect(() => inputRef.current?.focus(), []);
 
-  const addEvent = (text) => {
-    setEvents((current) => [...current.slice(-5), text]);
-  };
+  const addEvent = (text) => setEvents((current) => [...current.slice(-5), text]);
 
   const runCommand = (value = command) => {
     const trimmed = value.trim();
@@ -150,8 +174,13 @@ function App() {
       <header className="topbar">
         <div className="brand">
           <span className="brand-mark" />
-          <span>ULTRON</span>
-          <small>AI COMMAND SYSTEM</small>
+          <span>ULTRON AI</span>
+          <small>QUANTUM-NEURAL COMMAND SYSTEM</small>
+        </div>
+        <div className="top-center">
+          <strong>ULTRON AI</strong>
+          <span>v2.0</span>
+          <small>Hyper-Intelligent Platform. Your Strategic Quantum-Neural Partner.</small>
         </div>
         <div className="system-state"><span className="status-dot" />SYSTEM ONLINE</div>
       </header>
@@ -161,19 +190,22 @@ function App() {
           <div className="panel-label">SYSTEM</div>
           <div className="metric"><span>CORE</span><strong>READY</strong></div>
           <div className="metric"><span>VOICE</span><strong>{listening ? 'LISTENING' : 'STANDBY'}</strong></div>
-          <div className="metric"><span>TOOLS</span><strong>LOCKED</strong></div>
           <div className="metric"><span>MEMORY</span><strong>LOCAL</strong></div>
+          <div className="metric"><span>TOOLS</span><strong>LOCKED</strong></div>
           <button className="voice-button" onClick={toggleVoice} type="button">
             <span className="voice-ring" />{listening ? 'STOP VOICE' : 'ACTIVATE VOICE'}
           </button>
         </aside>
 
         <section className="core-stage" aria-label="ULTRON core interface">
+          <div className="core-title">ULTRON CORE <span>AI SYSTEM ONLINE</span></div>
           <div className="reticle reticle-one" />
           <div className="reticle reticle-two" />
+          <div className="reticle reticle-three" />
           <div className="holo-orb" aria-hidden="true" />
+          <div className="holo-latitude" aria-hidden="true" />
           <UltronFace />
-          <div className="core-caption">ULTRON CORE // NEURAL AVATAR</div>
+          <div className="core-caption">ULTRON CORE // NEURAL AVATAR // ONLINE</div>
           <div className="command-line">
             {lastCommand ? `LAST COMMAND: ${lastCommand.toUpperCase()}` : 'AWAITING COMMAND'}
             <span className="cursor">_</span>
