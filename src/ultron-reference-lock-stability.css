@@ -1,19 +1,21 @@
 /* ULTRON reference lock — stability pass */
-.shell{min-width:0;min-height:100vh}
-.app-grid{min-height:0}
-.sidebar,.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{will-change:transform}
+.shell{min-width:0;min-height:100vh;contain:layout paint}
+.app-grid{min-height:0;gap:10px}
+.sidebar,.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{will-change:transform;overflow:hidden}
 .core-panel{contain:layout paint style}
 .face-stage{contain:layout paint;isolation:isolate}
 .ultron-avatar{backface-visibility:hidden;transform-origin:50% 50%;will-change:transform,filter}
-.avatar-glow,.avatar-scanline,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c{pointer-events:none}
+.avatar-glow,.avatar-scanline,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c,.core-platform{pointer-events:none;backface-visibility:hidden}
 .panel-hud,.chat-input,.quick-grid button,.sidebar nav button{transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
-.quick-grid button:hover,.sidebar nav button:hover{transform:translateY(-1px)}
+.quick-grid button:hover,.sidebar nav button:hover,.command-center .mic-button:hover{transform:translateY(-1px)}
+.command-center .mic-button{will-change:transform,box-shadow,filter}
 @media (prefers-reduced-motion: reduce){
-  .ultron-avatar,.avatar-glow,.avatar-scanline,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c,.quick-grid button,.sidebar nav button{animation:none!important;transition:none!important;transform:none!important}
+  .ultron-avatar,.avatar-glow,.avatar-scanline,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c,.core-platform,.quick-grid button,.sidebar nav button,.command-center .mic-button{animation:none!important;transition:none!important;transform:none!important}
 }
 @media (max-width:900px){
   .topbar{height:56px}
-  .app-grid{min-width:0}
+  .app-grid{min-width:0;gap:8px}
   .sidebar{overflow:auto}
-  .core-panel{min-width:0}
+  .core-panel{min-width:0;min-height:600px}
+  .command-center .mic-button{max-width:100%}
 }
