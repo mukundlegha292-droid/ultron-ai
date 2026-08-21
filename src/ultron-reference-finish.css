@@ -1,0 +1,56 @@
+/* ULTRON reference finish — final composition pass */
+.shell{isolation:isolate}
+.topbar{height:52px}
+.app-grid{gap:7px}
+.sidebar{border-radius:7px}
+.workspace-main{gap:7px}
+.left-stack,.right-stack,.command-column{gap:7px}
+.card,.panel{border-radius:7px}
+
+.core-panel{min-height:0!important;display:flex;align-items:stretch;justify-content:center}
+.face-stage{width:100%;height:100%;min-height:0;display:flex;align-items:center;justify-content:center}
+.face-stage:before,.face-stage:after{z-index:0}
+.face-stage .globe,.face-stage .scan-grid{z-index:1}
+.ultron-avatar{z-index:4;position:relative;width:min(365px,79%);transform:translateY(-5px) scale(1.035)}
+.ultron-face-svg{overflow:visible}
+.avatar-glow{z-index:-1}
+.avatar-scanline{z-index:6;pointer-events:none}
+.core-platform{z-index:5}
+
+.core-panel .panel-hud{font-size:6px;letter-spacing:.13em}
+.core-card h2{font-size:18px}
+.core-card p{line-height:1.5}
+.metrics-card .meter{margin-bottom:8px}
+.modules-card .module{padding:6px 7px}
+.summary-card .summary-row{padding:6px 7px}
+
+.command-column{grid-template-rows:minmax(0,1fr) minmax(0,.66fr) minmax(0,.72fr)}
+.command-center{display:flex;flex-direction:column}
+.command-center .mic-button{min-height:126px;flex:0 0 126px}
+.command-center .suggest{min-height:29px}
+.quick-card .quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.quick-grid button{min-height:50px}
+.activity-card{display:flex;flex-direction:column}
+.activity-card .activity-chart{flex:0 0 34px}
+
+.chat-scroll{scrollbar-width:none}
+.chat-scroll::-webkit-scrollbar{display:none}
+.chat-input{height:34px}
+.chat-input input{font-size:10px}
+
+.top-center strong span{color:#7c86ff}
+.system-chip b{color:#67edb8}
+
+/* dense HUD corner brackets from the reference composition */
+.core-panel{--corner:rgba(88,220,255,.38)}
+.core-panel:global(.x){display:block}
+.core-panel .face-stage:before{box-shadow:inset 0 0 120px rgba(24,181,255,.08),0 0 34px rgba(78,211,255,.05)}
+.core-panel .face-stage:after{box-shadow:0 0 74px rgba(152,83,255,.08),0 0 17px rgba(87,216,255,.08)}
+.core-panel:after{text-shadow:0 0 10px rgba(75,218,255,.26)}
+
+/* subtle motion only; keeps the reference's restrained, engineered feel */
+.sidebar nav button.active{transform:none}
+.modules-card .module:hover,.summary-card .summary-row:hover,.activity-row:hover{transform:none}
+
+@media (max-width:1100px){.ultron-avatar{width:min(330px,78%)}}
+@media (max-width:900px){.topbar{min-height:58px}.app-grid{gap:6px}.core-panel{min-height:570px}.ultron-avatar{width:min(365px,80vw)}}
