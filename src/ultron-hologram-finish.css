@@ -1,0 +1,39 @@
+/* ULTRON reference hologram finish */
+.core-panel{overflow:hidden}
+.face-stage{overflow:hidden}
+.face-stage::before{background:conic-gradient(from 18deg,transparent 0 8%,rgba(84,221,255,.28) 8.6%,transparent 9.4% 27%,rgba(164,88,255,.24) 27.7%,transparent 28.5% 48%,rgba(84,221,255,.22) 48.8%,transparent 49.6% 69%,rgba(164,88,255,.2) 69.7%,transparent 70.6% 86%,rgba(84,221,255,.18) 86.7%,transparent 87.5%)}
+.face-stage::after{border-width:1px;box-shadow:0 0 68px rgba(79,215,255,.09),0 0 26px rgba(159,89,255,.08)}
+.core-panel::after{letter-spacing:.22em;text-shadow:0 0 10px rgba(95,219,255,.24)}
+.ultron-avatar{filter:drop-shadow(0 0 27px rgba(85,231,255,.64)) drop-shadow(0 0 88px rgba(132,66,255,.30))}
+.ultron-face-svg{filter:contrast(1.15) saturate(1.16) brightness(1.05)}
+.ultron-face-svg path:nth-of-type(4){filter:drop-shadow(0 0 12px rgba(204,79,255,.9))}
+.ultron-face-svg path:nth-of-type(5){filter:drop-shadow(0 0 8px rgba(135,226,255,.38))}
+.avatar-glow{background:radial-gradient(circle at 50% 44%,rgba(81,231,255,.34),rgba(125,68,255,.17) 42%,transparent 72%);filter:blur(30px)}
+.avatar-scanline{height:2px;box-shadow:0 0 32px rgba(117,239,255,1)}
+.core-platform{filter:drop-shadow(0 0 14px rgba(77,223,255,.42))}
+.core-platform::before{box-shadow:0 0 24px rgba(83,219,255,.48)}
+.core-platform::after{box-shadow:0 0 18px rgba(170,93,255,.36)}
+.panel-hud{background:rgba(2,10,19,.66);border-color:rgba(102,223,255,.22);box-shadow:inset 0 0 16px rgba(58,211,255,.04),0 0 14px rgba(55,196,255,.06)}
+.core-card h2{font-size:18px;text-shadow:0 0 18px rgba(112,226,255,.18)}
+.core-card .version{color:rgba(122,202,233,.72)}
+.metrics-card .meter i{box-shadow:inset 0 0 8px rgba(73,209,255,.05)}
+.modules-card .module em.online{color:#6be9bf;text-shadow:0 0 12px rgba(83,226,181,.38)}
+.command-center{border-color:rgba(92,219,255,.38)}
+.command-center .mic-button{background:radial-gradient(circle,rgba(37,133,210,.28) 0 17%,transparent 18% 32%,rgba(77,219,255,.08) 33% 35%,transparent 36%),radial-gradient(circle,rgba(113,69,255,.11),transparent 67%);box-shadow:inset 0 0 36px rgba(43,184,255,.05),0 0 24px rgba(41,185,255,.08)}
+.command-center .mic-core{box-shadow:0 0 36px rgba(75,220,255,.62),inset 0 0 22px rgba(86,231,255,.18)}
+.command-center .suggest{border-color:rgba(75,193,244,.12)}
+.quick-grid button span{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.quick-grid button:hover span{transform:scale(1.05)}
+.activity-card .activity-chart{border-top:1px solid rgba(85,215,255,.05);border-bottom:1px solid rgba(85,215,255,.04)}
+.chat-card .chat-scroll{scrollbar-color:rgba(80,208,255,.25) transparent}
+.chat-input{border-color:rgba(70,187,235,.17)}
+.chat-input input::placeholder{color:rgba(110,152,178,.55)}
+@keyframes ultronEyeHeartbeat{0%,100%{opacity:1}50%{opacity:.72}}
+@keyframes hologramShimmer{0%{opacity:.24}50%{opacity:.58}100%{opacity:.24}}
+.ultron-face-svg path:nth-of-type(4){animation:ultronEyeHeartbeat 2.8s ease-in-out infinite}
+.face-stage .globe-c{animation:hologramShimmer 3.4s ease-in-out infinite}
+.is-listening .ultron-face-svg path:nth-of-type(4){animation-duration:.8s}
+.is-processing .ultron-face-svg path:nth-of-type(4){animation-duration:.55s}
+@media (max-width:1100px){.ultron-avatar{width:min(300px,72%)}}
+@media (max-width:900px){.ultron-avatar{width:min(344px,77vw)}}
+@media (prefers-reduced-motion:reduce){.ultron-face-svg path:nth-of-type(4),.face-stage .globe-c{animation:none!important}}
