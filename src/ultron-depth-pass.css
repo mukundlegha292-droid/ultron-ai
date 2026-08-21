@@ -1,0 +1,31 @@
+/* ULTRON depth pass — reference-screen fidelity */
+.shell{background-image:radial-gradient(circle at 50% 44%,rgba(31,186,255,.12),transparent 22%),radial-gradient(circle at 54% 52%,rgba(120,70,255,.09),transparent 34%),linear-gradient(rgba(70,178,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(70,178,255,.012) 1px,transparent 1px);background-size:auto,auto,38px 38px,38px 38px}
+.topbar{backdrop-filter:blur(12px)}
+.core-panel{box-shadow:inset 0 0 90px rgba(35,193,255,.07),inset 0 0 12px rgba(135,87,255,.035),0 0 52px rgba(28,137,224,.14)}
+.core-panel:before{inset:6px;border-color:rgba(91,218,255,.18);box-shadow:inset 0 0 18px rgba(69,204,255,.035)}
+.face-stage{perspective:900px}
+.face-stage:before{animation:depthOrbit 18s linear infinite}
+.face-stage:after{animation:depthTilt 6s ease-in-out infinite}
+.globe-a{transform:rotateX(8deg)}
+.globe-b{transform:rotateY(-12deg)}
+.globe-c{transform:rotateX(63deg)}
+.ultron-avatar{filter:drop-shadow(0 0 26px rgba(85,229,255,.63)) drop-shadow(0 0 86px rgba(126,68,255,.28));}
+.ultron-face-svg{filter:contrast(1.14) saturate(1.16) brightness(1.05)}
+.ultron-face-svg path:nth-of-type(4){filter:drop-shadow(0 0 10px rgba(192,68,255,.88))}
+.avatar-glow{filter:blur(30px);background:radial-gradient(circle at 50% 46%,rgba(87,231,255,.34),rgba(119,62,255,.16) 43%,transparent 72%)}
+.avatar-scanline{opacity:.82}
+.core-platform{filter:drop-shadow(0 0 14px rgba(75,219,255,.36))}
+.panel-hud{background:rgba(2,10,18,.64);box-shadow:inset 0 0 12px rgba(87,216,255,.04),0 0 12px rgba(45,178,255,.06)}
+.sidebar,.command-center,.quick-card,.activity-card{box-shadow:inset 0 0 30px rgba(36,175,255,.035),0 16px 40px rgba(0,0,0,.28),0 0 28px rgba(28,130,218,.08)}
+.modules-card .module,.summary-card .summary-row{transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
+.modules-card .module:hover,.summary-card .summary-row:hover{box-shadow:inset 0 0 20px rgba(51,184,241,.045),0 0 12px rgba(53,182,241,.04)}
+.mic-button{box-shadow:inset 0 0 35px rgba(42,176,255,.055),0 0 20px rgba(42,176,255,.05)}
+.mic-core{box-shadow:0 0 36px rgba(73,221,255,.62),inset 0 0 20px rgba(94,227,255,.16)}
+.chat-input{backdrop-filter:blur(8px)}
+.footer-strip{backdrop-filter:blur(8px)}
+.is-listening .core-panel{box-shadow:inset 0 0 110px rgba(56,210,255,.11),0 0 70px rgba(54,194,255,.16)}
+.is-listening .ultron-avatar{filter:drop-shadow(0 0 36px rgba(112,235,255,.99)) drop-shadow(0 0 112px rgba(145,73,255,.44))}
+.is-processing .core-panel{box-shadow:inset 0 0 125px rgba(91,116,255,.11),0 0 74px rgba(91,89,255,.18)}
+@keyframes depthOrbit{to{transform:rotate(360deg)}}
+@keyframes depthTilt{0%,100%{transform:rotateX(67deg) scaleX(.92)}50%{transform:rotateX(67deg) scaleX(1.08)}}
+@media (prefers-reduced-motion:reduce){.face-stage:before,.face-stage:after,.ultron-avatar,.globe-a,.globe-b,.globe-c{animation:none!important}}
