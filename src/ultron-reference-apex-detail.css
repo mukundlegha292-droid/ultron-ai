@@ -1,0 +1,22 @@
+/* ULTRON reference apex detail pass */
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{background:linear-gradient(180deg,rgba(5,15,27,.99),rgba(1,7,14,.98))}
+.core-card{border-color:rgba(87,215,255,.27);box-shadow:inset 0 0 0 1px rgba(99,226,255,.04),0 0 40px rgba(21,123,201,.08)}
+.core-panel{background:radial-gradient(circle at 50% 42%,rgba(22,111,166,.20),transparent 48%),linear-gradient(180deg,rgba(2,12,22,.98),rgba(1,6,12,1))!important}
+.face-stage{background:radial-gradient(circle at 50% 44%,rgba(74,226,255,.20),transparent 24%),radial-gradient(circle at 50% 54%,rgba(132,69,255,.12),transparent 54%),rgba(1,7,13,.45)}
+.face-stage::before{width:94%;height:94%;border-color:rgba(89,226,255,.10);box-shadow:inset 0 0 120px rgba(30,193,255,.075)}
+.face-stage::after{width:70%;height:70%;border-color:rgba(188,105,255,.17);box-shadow:0 0 75px rgba(122,77,255,.09)}
+.ultron-avatar{width:min(374px,80%);transform:translateY(-11px) scale(1.04);filter:drop-shadow(0 0 27px rgba(96,233,255,.66)) drop-shadow(0 0 98px rgba(125,71,255,.29))}
+.ultron-face-svg{filter:contrast(1.2) saturate(1.22) brightness(1.045) drop-shadow(0 0 8px rgba(105,231,255,.22))}
+.avatar-glow{background:radial-gradient(circle at 50% 43%,rgba(94,236,255,.36),rgba(120,71,255,.17) 43%,transparent 73%);filter:blur(34px)}
+.avatar-scanline{box-shadow:0 0 34px rgba(139,244,255,.98)}
+.core-platform{transform:scale(1.045);filter:drop-shadow(0 0 18px rgba(71,225,255,.42))}
+.command-center{box-shadow:inset 0 0 35px rgba(36,190,245,.045),0 0 38px rgba(14,93,160,.11)}
+.command-center .mic-button{height:138px}
+.command-center .mic-button::before{width:158px;height:158px}
+.command-center .mic-button::after{width:220px;height:220px}
+.quick-grid button,.suggest{border-color:rgba(83,208,255,.14)}
+.quick-grid button:hover,.suggest:hover{border-color:rgba(99,224,255,.38);box-shadow:inset 0 0 18px rgba(53,201,255,.05),0 0 12px rgba(49,180,236,.06)}
+.activity-card .activity-chart{box-shadow:inset 0 0 18px rgba(40,187,239,.03)}
+.chat-card .chat-input{box-shadow:inset 0 0 20px rgba(39,181,239,.05),0 0 12px rgba(35,165,223,.04)}
+@media(max-width:1100px){.ultron-avatar{width:min(346px,78%)}}
+@media(max-width:900px){.core-panel{min-height:605px}.ultron-avatar{width:min(360px,81vw)}}
