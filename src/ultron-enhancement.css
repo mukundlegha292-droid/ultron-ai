@@ -2,20 +2,26 @@
 .shell{isolation:isolate}
 .shell .core-panel{box-shadow:inset 0 0 95px rgba(27,174,255,.07),inset 0 1px rgba(173,237,255,.09),0 0 46px rgba(25,129,208,.13)}
 .shell .core-panel:before{content:"";position:absolute;inset:7px;border:1px solid rgba(81,210,255,.15);border-radius:7px;pointer-events:none}
+.shell .core-panel:after{content:"ULTRON CORE // ACTIVE";position:absolute;top:9px;left:50%;transform:translateX(-50%);font:700 6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:rgba(113,211,255,.58);pointer-events:none}
+.face-stage{box-shadow:inset 0 0 45px rgba(40,192,255,.05);position:relative}
 .face-stage:before{content:"";position:absolute;inset:6%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 9%,rgba(89,215,255,.25) 9.5%,transparent 10.3% 27%,rgba(168,91,255,.22) 27.4%,transparent 28.2% 48%,rgba(89,215,255,.2) 48.6%,transparent 49.4% 72%,rgba(168,91,255,.19) 72.6%,transparent 73.4%);animation:spin 15s linear infinite;mask-image:radial-gradient(circle,transparent 0 47%,#000 48% 52%,transparent 53%)}
 .face-stage:after{content:"";position:absolute;width:60%;height:60%;border-radius:50%;border:1px solid rgba(101,224,255,.17);box-shadow:0 0 52px rgba(66,206,255,.08);transform:rotateX(68deg);animation:horizon 5s ease-in-out infinite}
-.face-stage{box-shadow:inset 0 0 45px rgba(40,192,255,.05)}
-.core-panel:after{content:"ULTRON CORE // ACTIVE";position:absolute;top:9px;left:50%;transform:translateX(-50%);font:700 6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:rgba(113,211,255,.58);pointer-events:none}
+.face-stage .hud-corner{display:block}
+.core-panel .panel-hud{z-index:8;text-shadow:0 0 7px rgba(85,214,255,.35)}
 .ultron-avatar{width:min(332px,74%);filter:drop-shadow(0 0 20px rgba(55,219,255,.44)) drop-shadow(0 0 72px rgba(111,54,255,.18));transform-origin:center center}
 .ultron-face-svg{filter:contrast(1.1) saturate(1.12)}
 .avatar-glow{inset:5% 5% 1%;background:radial-gradient(circle at 50% 45%,rgba(77,228,255,.29),rgba(139,66,255,.14) 43%,transparent 69%);filter:blur(25px)}
 .avatar-scanline{top:8%;animation:scan 2.35s linear infinite}
 .core-platform{bottom:2%;width:68%;opacity:1}
 .core-platform:before{content:"";position:absolute;left:50%;bottom:13px;width:82%;height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(92,224,255,.55),transparent);box-shadow:0 0 16px rgba(83,219,255,.35)}
+.core-panel .face-stage:global(.x){display:block}
 .is-listening .ultron-avatar{filter:drop-shadow(0 0 30px rgba(104,231,255,.9)) drop-shadow(0 0 92px rgba(142,58,255,.34))}
 .is-listening .face-stage:after{animation-duration:1.65s;border-color:rgba(178,95,255,.42)}
 .is-processing .core-panel:after{content:"ULTRON CORE // PROCESSING";color:rgba(173,122,255,.78)}
 .is-processing .face-stage:before{animation-duration:5s}
+.is-processing .core-panel{animation:processingPanel .95s ease-in-out infinite}
+.is-processing .ultron-avatar{animation:float .95s ease-in-out infinite,neuralFlash .78s ease-in-out infinite}
+.is-processing .core-platform{animation:platformPulse .8s ease-in-out infinite}
 .sidebar nav button:hover,.quick-grid button:hover,.suggest:hover,.power-card:hover{transform:translateY(-1px)}
 .sidebar nav button,.quick-grid button,.suggest,.power-card{transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
 .command-center{box-shadow:inset 0 0 42px rgba(27,173,255,.045),0 0 32px rgba(15,103,188,.11)}
@@ -32,10 +38,6 @@
 .clock{min-width:73px}
 .footer-strip{flex:0 0 24px;display:flex;align-items:center;justify-content:center;gap:4px;position:relative;z-index:5;border-top:1px solid rgba(83,177,255,.16);background:rgba(2,7,14,.96);color:#55728d;font-size:6px;letter-spacing:.14em;text-transform:uppercase}
 .footer-strip strong{color:#7fa4c0;font-weight:600}
-.is-processing .core-panel{animation:processingPanel .95s ease-in-out infinite}
-.is-processing .ultron-avatar{animation:float .95s ease-in-out infinite,neuralFlash .78s ease-in-out infinite}
-.is-processing .core-platform{animation:platformPulse .8s ease-in-out infinite}
-.chat-input button:disabled{opacity:.45;cursor:not-allowed}
 .card-title{font-weight:700;text-shadow:0 0 8px rgba(74,206,255,.08)}
 .panel-hud{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .core-card h2{letter-spacing:.03em;text-shadow:0 0 12px rgba(109,225,255,.12)}
@@ -44,6 +46,19 @@
 .module em.online{animation:modulePulse 2s ease-in-out infinite}
 .summary-row b{font-variant-numeric:tabular-nums;text-shadow:0 0 9px rgba(86,211,255,.14)}
 .quick-grid button:focus-visible,.suggest:focus-visible,.sidebar nav button:focus-visible,.power-card:focus-visible,.mic-button:focus-visible{outline:1px solid rgba(103,225,255,.8);outline-offset:2px}
+/* reference-screen HUD frame details */
+.core-panel{overflow:hidden}
+.core-panel .panel-hud:before{content:"";display:inline-block;width:4px;height:4px;margin-right:5px;border:1px solid rgba(95,222,255,.65);box-shadow:0 0 7px rgba(95,222,255,.35);vertical-align:middle}
+.core-panel .panel-hud.right:before{border-radius:50%;background:rgba(95,222,255,.55)}
+.core-panel .panel-hud.left{bottom:10px}
+.core-panel .panel-hud.right{bottom:10px}
+.core-panel .panel-hud.left:after{content:" / SCAN ACTIVE";color:rgba(92,191,229,.36)}
+.core-panel .panel-hud.right:after{content:" / SECURE";color:rgba(92,191,229,.36)}
+.core-card:before,.metrics-card:before,.modules-card:before,.summary-card:before,.chat-card:before,.command-center:before,.quick-card:before,.activity-card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(90deg,transparent 0 9%,rgba(88,210,255,.035) 9.2%,transparent 9.5% 90.5%,rgba(88,210,255,.03) 90.8%,transparent 91%)}
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{position:relative}
+.core-card:after,.metrics-card:after,.modules-card:after,.summary-card:after,.chat-card:after,.command-center:after,.quick-card:after,.activity-card:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;mask-image:linear-gradient(90deg,transparent 0 7%,#000 8% 92%,transparent 93%);border-top:1px solid rgba(98,216,255,.07);border-bottom:1px solid rgba(98,216,255,.04)}
+.command-center h3{letter-spacing:.01em;text-shadow:0 0 12px rgba(137,218,255,.18)}
+.mic-button span{text-transform:uppercase;letter-spacing:.14em}
 @keyframes horizon{0%,100%{transform:rotateX(68deg) scaleX(.88);opacity:.28}50%{transform:rotateX(68deg) scaleX(1.1);opacity:.82}}
 @keyframes micPulse{50%{transform:scale(1.1)}}
 @keyframes onlineGlow{50%{text-shadow:0 0 12px rgba(82,228,169,.66)}}
