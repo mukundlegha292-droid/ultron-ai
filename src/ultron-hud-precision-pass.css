@@ -1,0 +1,24 @@
+/* ULTRON HUD precision pass */
+.topbar{box-shadow:0 8px 24px rgba(0,0,0,.32)}
+.top-center strong{text-shadow:0 0 16px rgba(84,156,255,.32)}
+.system-chip,.clock{backdrop-filter:blur(8px)}
+.sidebar nav button.active{box-shadow:inset 0 0 24px rgba(28,168,255,.1),0 0 16px rgba(28,168,255,.08)}
+.core-card h2{letter-spacing:.015em;text-shadow:0 0 14px rgba(89,219,255,.12)}
+.core-card p,.summary-row,.module,.activity-row{letter-spacing:.01em}
+.core-panel{isolation:isolate}
+.core-panel:before{content:"";position:absolute;inset:7px;border:1px solid rgba(93,221,255,.055);border-radius:9px;pointer-events:none;z-index:1}
+.face-stage{z-index:2}
+.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c{filter:drop-shadow(0 0 5px rgba(89,217,255,.12))}
+.ultron-avatar{filter:drop-shadow(0 0 24px rgba(88,228,255,.54)) drop-shadow(0 0 70px rgba(122,72,255,.18))}
+.avatar-glow{mix-blend-mode:screen}
+.avatar-scanline{mix-blend-mode:screen}
+.command-center .mic-button{transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}
+.command-center .mic-button:hover{filter:brightness(1.08)}
+.command-center .mic-core{transition:transform .25s ease,box-shadow .25s ease}
+.shell.is-listening .command-center .mic-core{transform:scale(1.08)}
+.shell.is-processing .command-center .mic-core{transform:scale(1.04)}
+.quick-grid button{border-radius:6px}
+.quick-grid button:hover{background:rgba(20,72,105,.16)}
+.chat-input:focus-within{border-color:rgba(85,218,255,.42);box-shadow:0 0 16px rgba(43,192,255,.08)}
+.footer-strip{letter-spacing:.08em}
+@media(prefers-reduced-motion:reduce){.command-center .mic-button,.command-center .mic-core{transition:none!important}.ultron-avatar,.avatar-glow,.avatar-scanline,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c{filter:none!important}}
