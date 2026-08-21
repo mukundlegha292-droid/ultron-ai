@@ -1,0 +1,32 @@
+/* ULTRON precision pass — reference geometry lock */
+.shell .workspace{gap:7px}
+.shell .workspace-main{gap:7px}
+.shell .left-stack,.shell .right-stack,.shell .command-column{gap:7px}
+.shell .sidebar{border-radius:6px}
+.shell .core-panel{border-radius:6px}
+.shell .core-card h2{font-size:18px;line-height:1.05}
+.shell .core-card p{max-width:210px;line-height:1.45}
+.shell .core-card .version{letter-spacing:.12em}
+.shell .core-panel .face-stage{inset:0}
+.shell .core-panel .ultron-avatar{width:min(364px,80%);transform:translateY(-7px) scale(1.035);}
+.shell .is-listening .ultron-avatar{transform:translateY(-7px) scale(1.07)}
+.shell .is-processing .ultron-avatar{transform:translateY(-7px) scale(1.05)}
+.shell .core-panel .globe-a{width:90%;height:90%}
+.shell .core-panel .globe-b{width:72%;height:72%}
+.shell .core-panel .globe-c{width:56%;height:56%}
+.shell .core-panel .scan-grid{inset:5%;opacity:.9}
+.shell .core-panel .core-platform{width:75%;bottom:1.5%}
+.shell .modules-card .module,.shell .summary-card .summary-row{padding-left:8px;padding-right:8px}
+.shell .command-center{padding-top:10px}
+.shell .command-center .mic-button{height:136px}
+.shell .command-center .suggest{min-height:26px}
+.shell .quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.shell .quick-grid button{min-height:44px}
+.shell .activity-card .activity-row{min-height:27px}
+.shell .chat-card{min-height:158px}
+.shell .chat-scroll{max-height:82px}
+.shell .chat-input{height:30px}
+.shell .top-center small{max-width:470px}
+.shell .system-chip{white-space:nowrap}
+@media (max-width:1100px){.shell .core-panel .ultron-avatar{width:min(332px,78%)}.shell .quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:900px){.shell .core-panel .ultron-avatar{width:min(370px,80vw)}.shell .quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.shell .chat-card{min-height:175px}}
