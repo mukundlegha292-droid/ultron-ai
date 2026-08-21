@@ -1,0 +1,11 @@
+/* ULTRON focal face polish */
+.face-stage{perspective:900px}
+.ultron-avatar{transform:translateY(-10px) scale(1.055);filter:drop-shadow(0 0 24px rgba(92,231,255,.62)) drop-shadow(0 0 78px rgba(123,73,255,.24))}
+.ultron-face-svg{filter:contrast(1.22) saturate(1.2) brightness(1.04)}
+.avatar-glow{inset:-4%;opacity:.9;filter:blur(36px)}
+.avatar-scanline{opacity:.72;box-shadow:0 0 38px rgba(148,241,255,.95)}
+.face-stage .globe-a{opacity:.62}.face-stage .globe-b{opacity:.74}.face-stage .globe-c{opacity:.52}
+.core-platform{transform:translateX(-50%) scale(1.06);opacity:.98}
+@media(max-width:1100px){.ultron-avatar{width:min(360px,80%);transform:translateY(-8px) scale(1.04)}}
+@media(max-width:900px){.ultron-avatar{width:min(364px,82vw)}}
+@media(prefers-reduced-motion:reduce){.ultron-avatar,.avatar-scanline,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c{animation:none!important}}
