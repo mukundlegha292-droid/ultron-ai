@@ -1,0 +1,21 @@
+/* ULTRON exact-reference continuity pass */
+:root{--u-cyan:rgba(88,222,255,.22);--u-blue:rgba(39,151,224,.11);--u-purple:rgba(128,75,255,.10)}
+.shell{background:radial-gradient(circle at 50% 42%,rgba(41,193,255,.07),transparent 25%),radial-gradient(circle at 54% 55%,rgba(112,63,255,.06),transparent 38%),#02060c}
+.core-panel{isolation:isolate;box-shadow:inset 0 0 100px rgba(31,176,247,.075),0 0 46px rgba(25,129,212,.10)!important}
+.face-stage{isolation:isolate}
+.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c{opacity:.94}
+.ultron-avatar{width:min(372px,80%);transform:translateY(-10px) scale(1.045);filter:drop-shadow(0 0 28px rgba(90,229,255,.68)) drop-shadow(0 0 96px rgba(126,70,255,.30))}
+.ultron-face-svg{filter:contrast(1.18) saturate(1.20) brightness(1.04)}
+.avatar-glow{opacity:.9;filter:blur(34px)}
+.core-platform{width:75%;transform:scale(1.04);filter:drop-shadow(0 0 18px rgba(74,224,255,.40))}
+.panel-hud{background:rgba(2,11,20,.76);border-color:rgba(94,222,255,.24)}
+.sidebar nav button.active{box-shadow:inset 0 0 28px rgba(32,176,236,.14),0 0 18px rgba(42,185,241,.10)}
+.left-stack,.right-stack,.command-column{gap:8px}
+.left-stack .card,.right-stack .card,.command-column .card{border-color:rgba(75,190,240,.15);box-shadow:inset 0 0 20px rgba(43,177,230,.026),0 0 22px rgba(20,106,177,.055)}
+.command-center{box-shadow:inset 0 0 44px rgba(36,171,227,.045),0 0 30px rgba(20,105,178,.08)}
+.command-center .mic-button{height:138px}
+.quick-card,.activity-card,.chat-card{box-shadow:inset 0 0 30px rgba(31,163,219,.035),0 0 22px rgba(19,100,171,.055)}
+.chat-input:focus-within{box-shadow:inset 0 0 24px rgba(52,190,244,.07),0 0 20px rgba(45,182,239,.09)}
+@media(max-width:1100px){.ultron-avatar{width:min(342px,79%)}}
+@media(max-width:900px){.core-panel{min-height:610px}.ultron-avatar{width:min(356px,81vw)}}
+@media(prefers-reduced-motion:reduce){.ultron-avatar{animation:none!important}}
