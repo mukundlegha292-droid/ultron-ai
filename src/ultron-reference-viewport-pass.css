@@ -1,0 +1,18 @@
+/* ULTRON reference viewport pass */
+.shell{min-height:100vh;display:flex;flex-direction:column}
+.app-grid{flex:1;min-height:0}
+.workspace{min-width:0;min-height:0}
+.workspace-main{min-width:0;min-height:0}
+.left-stack,.right-stack{min-width:0}
+.core-panel{min-width:0;min-height:0}
+.face-stage{min-width:0;min-height:0;display:flex;align-items:center;justify-content:center}
+.ultron-avatar{max-height:79%;object-fit:contain}
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{min-width:0}
+.card-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.core-card p,.chat-row div{overflow-wrap:anywhere}
+.command-center .suggest{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (min-width:1200px){.app-grid{padding:8px 10px 6px}.workspace-main{grid-template-columns:180px minmax(430px,1fr) 188px;gap:7px}.workspace{grid-template-columns:minmax(0,1fr) 208px;gap:7px}.ultron-avatar{width:min(370px,76%);max-height:82%}.face-stage{min-height:0}.core-panel{min-height:0}.command-center .mic-button{height:136px}}
+@media (min-width:1440px){.workspace-main{grid-template-columns:192px minmax(520px,1fr) 200px}.workspace{grid-template-columns:minmax(0,1fr) 220px}.ultron-avatar{width:min(392px,78%)} }
+@media (max-width:1100px){.workspace-main{grid-template-columns:132px minmax(250px,1fr) 154px}.workspace{grid-template-columns:minmax(0,1fr) 210px}.ultron-avatar{width:min(326px,74%)}}
+@media (max-width:900px){.app-grid{padding:8px}.workspace-main{grid-template-columns:1fr}.workspace{grid-template-columns:1fr}.core-panel{min-height:575px}.face-stage{min-height:575px}.ultron-avatar{width:min(350px,78vw);max-height:78%}}
+@media (prefers-reduced-motion:reduce){.ultron-avatar{animation:none!important}}
