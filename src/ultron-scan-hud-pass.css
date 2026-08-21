@@ -1,0 +1,26 @@
+/* ULTRON scan-HUD reference pass */
+.core-panel{isolation:isolate}
+.face-stage{position:relative}
+.face-stage:before{animation:ultronPulse 4.6s ease-in-out infinite}
+.face-stage:after{animation:ultronOrbitPulse 6.4s ease-in-out infinite}
+.ultron-avatar{animation:ultronFloat 4.2s ease-in-out infinite;will-change:transform,filter}
+.ultron-face-svg path{vector-effect:non-scaling-stroke}
+.avatar-scanline{animation:ultronScan 3.2s linear infinite}
+.panel-hud:after{content:"";position:absolute;inset:5px;border:1px solid rgba(87,218,255,.08);border-radius:inherit;pointer-events:none}
+.command-center{box-shadow:inset 0 0 34px rgba(40,176,232,.05),0 0 34px rgba(39,119,202,.08)}
+.command-center .mic-button{position:relative;overflow:visible}
+.command-center .mic-button:after{box-shadow:0 0 34px rgba(122,72,255,.09),inset 0 0 18px rgba(65,215,255,.025)}
+.left-stack .card,.right-stack .card{position:relative;overflow:hidden}
+.left-stack .card:after,.right-stack .card:after,.activity-card:after{content:"";position:absolute;left:-30%;right:-30%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(83,220,255,.18),rgba(155,94,255,.16),transparent);animation:ultronCardSweep 5.8s ease-in-out infinite;pointer-events:none}
+.quick-grid button{position:relative;overflow:hidden;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.quick-grid button:hover{transform:translateY(-1px);box-shadow:0 0 16px rgba(52,188,239,.08)}
+.chat-card .chat-row{position:relative}
+.chat-card .chat-row:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(84,212,255,.06),transparent)}
+@keyframes ultronFloat{0%,100%{transform:translateY(-9px) scale(1.035)}50%{transform:translateY(-13px) scale(1.045)}}
+@keyframes ultronPulse{0%,100%{opacity:.82;filter:brightness(1)}50%{opacity:1;filter:brightness(1.1)}}
+@keyframes ultronOrbitPulse{0%,100%{opacity:.65;transform:translate(-50%,-50%) scale(.98)}50%{opacity:.95;transform:translate(-50%,-50%) scale(1.012)}}
+@keyframes ultronScan{0%{top:15%;opacity:0}12%{opacity:.75}50%{opacity:1}88%{opacity:.75}100%{top:84%;opacity:0}}
+@keyframes ultronCardSweep{0%,20%{transform:translateX(-35%);opacity:0}35%{opacity:.45}70%{opacity:.2}100%{transform:translateX(35%);opacity:0}}
+.is-listening .ultron-avatar{filter:drop-shadow(0 0 30px rgba(93,235,255,.72)) drop-shadow(0 0 100px rgba(128,72,255,.3));animation-duration:2.8s}
+.is-processing .ultron-avatar{animation-duration:2s}
+@media (prefers-reduced-motion:reduce){.face-stage:before,.face-stage:after,.ultron-avatar,.avatar-scanline,.left-stack .card:after,.right-stack .card:after,.activity-card:after{animation:none!important}}
