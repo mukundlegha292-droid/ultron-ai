@@ -1,0 +1,27 @@
+/* ULTRON material + face precision pass */
+.core-panel{box-shadow:inset 0 0 88px rgba(28,178,255,.09),inset 0 0 0 1px rgba(157,233,255,.045),0 0 58px rgba(28,128,216,.14)!important}
+.face-stage{perspective:900px}
+.ultron-avatar{transform:translateY(-7px) scale(1.035);transform-origin:center 58%;filter:drop-shadow(0 0 28px rgba(86,231,255,.63)) drop-shadow(0 0 96px rgba(125,67,255,.3))}
+.ultron-face-svg{filter:contrast(1.17) saturate(1.18) brightness(1.035) drop-shadow(0 0 5px rgba(106,225,255,.08))}
+.ultron-face-svg path:nth-of-type(1){stroke:#b7f3ff;stroke-width:3.1;filter:drop-shadow(0 0 7px rgba(114,228,255,.23))}
+.ultron-face-svg path:nth-of-type(4),.ultron-face-svg path:nth-of-type(5){filter:drop-shadow(0 0 11px rgba(190,75,255,.84))}
+.ultron-face-svg path:nth-of-type(6),.ultron-face-svg path:nth-of-type(7){filter:drop-shadow(0 0 4px rgba(131,224,255,.2))}
+.avatar-glow{inset:0;background:radial-gradient(circle at 50% 43%,rgba(86,232,255,.34),rgba(121,66,255,.16) 44%,transparent 72%);filter:blur(31px)}
+.avatar-scanline{height:2px;top:8%;left:6%;right:6%;box-shadow:0 0 34px rgba(139,242,255,.96)}
+.face-stage .globe-a{width:91%;height:91%;opacity:.82}
+.face-stage .globe-b{width:73%;height:73%;opacity:.8}
+.face-stage .globe-c{width:57%;height:57%;opacity:.74}
+.face-stage::after{width:71%;height:71%;border-color:rgba(181,101,255,.18);box-shadow:0 0 82px rgba(105,88,255,.1)}
+.core-platform{width:75%;filter:drop-shadow(0 0 18px rgba(82,224,255,.42))}
+.core-platform span{box-shadow:0 0 16px rgba(83,224,255,.5)}
+.modules-card .module,.summary-card .summary-row{transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.modules-card .module:hover,.summary-card .summary-row:hover{transform:translateX(2px);background:rgba(46,167,222,.035);border-color:rgba(89,215,255,.2)}
+.command-center .mic-button{box-shadow:inset 0 0 38px rgba(42,170,245,.06),0 0 22px rgba(52,186,255,.08)}
+.is-listening .command-center .mic-button{box-shadow:inset 0 0 48px rgba(66,214,255,.14),0 0 32px rgba(66,198,255,.15)}
+.is-processing .command-center .mic-button{box-shadow:inset 0 0 48px rgba(152,105,255,.13),0 0 32px rgba(90,173,255,.12)}
+@keyframes coreMaterialBreath{50%{filter:brightness(1.07) saturate(1.1)}}
+.ultron-avatar{animation:float 4s ease-in-out infinite,coreMaterialBreath 4.5s ease-in-out infinite}
+.is-listening .ultron-avatar{animation:float 2.5s ease-in-out infinite,coreMaterialBreath 1.15s ease-in-out infinite}
+.is-processing .ultron-avatar{animation:float .82s ease-in-out infinite,coreMaterialBreath .62s ease-in-out infinite}
+@media(max-width:1100px){.ultron-avatar{width:min(340px,78%)}}
+@media(max-width:900px){.core-panel{min-height:600px}.ultron-avatar{width:min(370px,80vw)}}
