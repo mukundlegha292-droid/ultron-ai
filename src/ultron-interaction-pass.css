@@ -1,0 +1,30 @@
+/* ULTRON continuous interaction pass */
+.shell .brand-orb,.shell .mic-core,.shell .quick-grid span{will-change:transform,box-shadow,filter}
+.topbar{position:relative}
+.topbar:after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(83,215,255,.22),rgba(166,101,255,.16),transparent);pointer-events:none}
+.brand-orb{box-shadow:0 0 20px rgba(41,201,255,.32),inset 0 0 14px rgba(69,215,255,.16)}
+.system-chip{transition:border-color .2s ease,box-shadow .2s ease}
+.system-chip:hover{border-color:rgba(88,220,255,.5);box-shadow:0 0 18px rgba(55,200,255,.08)}
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{transition:border-color .22s ease,box-shadow .22s ease,transform .22s ease}
+.core-card:hover,.metrics-card:hover,.modules-card:hover,.summary-card:hover,.chat-card:hover,.command-center:hover,.quick-card:hover,.activity-card:hover{transform:translateY(-1px)}
+.face-stage .globe-a{box-shadow:inset 0 0 48px rgba(31,209,255,.13),0 0 44px rgba(37,159,255,.14)}
+.face-stage .globe-b{box-shadow:0 0 26px rgba(74,205,255,.08)}
+.face-stage .globe-c{box-shadow:0 0 30px rgba(178,96,255,.12)}
+.ultron-avatar{transition:transform .35s ease,filter .35s ease}
+.is-listening .ultron-avatar{filter:drop-shadow(0 0 36px rgba(104,231,255,1)) drop-shadow(0 0 108px rgba(142,58,255,.42))}
+.is-processing .ultron-avatar{filter:drop-shadow(0 0 30px rgba(104,231,255,.82)) drop-shadow(0 0 88px rgba(142,58,255,.32))}
+.voice-status strong{transition:color .2s ease,text-shadow .2s ease}
+.is-listening .voice-status strong{color:#bff7ff;text-shadow:0 0 12px rgba(109,232,255,.65)}
+.is-processing .voice-status strong{color:#d5c1ff;text-shadow:0 0 12px rgba(176,126,255,.55)}
+.quick-grid button,.suggest,.power-card{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.quick-grid button:active,.suggest:active,.power-card:active{transform:scale(.98)}
+.mic-button:active{transform:scale(.99)}
+.chat-input input:focus{caret-color:#67e1ff}
+.chat-input button{transition:filter .2s ease,box-shadow .2s ease,transform .2s ease}
+.chat-input button:hover:not(:disabled){filter:brightness(1.08);transform:translateX(-1px)}
+.command-center .suggest:disabled{opacity:.45}
+.module em.online{color:#63efbd;text-shadow:0 0 8px rgba(84,227,176,.18)}
+.activity-row i{transition:transform .2s ease,box-shadow .2s ease}
+.activity-row:hover i{transform:scale(1.25);box-shadow:0 0 12px rgba(89,221,255,.5)}
+.footer-strip{box-shadow:inset 0 1px rgba(97,210,255,.05)}
+@media (prefers-reduced-motion:reduce){.brand-orb,.top-center strong,.face-stage .globe,.face-stage .scan-grid,.avatar-scanline,.waveform span,.mic-button:before,.mic-button:after,.mic-core,.is-processing .ultron-avatar,.is-processing .core-platform{animation:none!important}.ultron-avatar{transition:none}.card,.panel,.quick-grid button,.suggest,.power-card{transition:none}}
