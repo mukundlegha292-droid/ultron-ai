@@ -1,0 +1,26 @@
+/* ULTRON exact-reference command finish */
+.shell{background:#02060c}
+.topbar{height:58px;background:rgba(2,8,16,.97);border-bottom:1px solid rgba(88,204,255,.28)}
+.app-grid{gap:7px}
+.sidebar{width:148px;background:linear-gradient(180deg,rgba(5,14,25,.99),rgba(2,7,14,.98));border:1px solid rgba(73,190,255,.22)}
+.workspace-main{grid-template-columns:154px minmax(0,1fr) 164px;gap:7px}
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{border:1px solid rgba(76,192,255,.20);background:linear-gradient(180deg,rgba(5,15,27,.98),rgba(2,8,16,.98))}
+.core-panel{min-height:520px;border-color:rgba(72,209,255,.55)!important;background:radial-gradient(circle at 50% 46%,rgba(32,131,186,.2),transparent 45%),linear-gradient(180deg,#04111e,#01070d)!important}
+.face-stage{min-height:100%;background:radial-gradient(circle at 50% 45%,rgba(66,221,255,.22),transparent 26%),radial-gradient(circle at 50% 56%,rgba(127,67,255,.11),transparent 52%),rgba(1,7,13,.34)}
+.face-stage .globe-a{width:90%;height:90%;border-color:rgba(86,224,255,.22);box-shadow:inset 0 0 46px rgba(45,205,255,.1),0 0 42px rgba(36,159,255,.12)}
+.face-stage .globe-b{width:72%;height:72%;border-color:rgba(105,228,255,.23)}
+.face-stage .globe-c{width:56%;height:56%;border-color:rgba(187,105,255,.30)}
+.ultron-avatar{width:min(362px,80%);transform:translateY(-7px) scale(1.035);filter:drop-shadow(0 0 28px rgba(93,232,255,.68)) drop-shadow(0 0 96px rgba(128,67,255,.30))}
+.ultron-face-svg{filter:contrast(1.18) saturate(1.18) brightness(1.05)}
+.ultron-face-svg path:nth-of-type(4){filter:drop-shadow(0 0 11px rgba(205,79,255,.9))}
+.avatar-glow{background:radial-gradient(circle at 50% 44%,rgba(82,232,255,.36),rgba(127,68,255,.16) 44%,transparent 72%);filter:blur(32px)}
+.core-platform{width:75%;filter:drop-shadow(0 0 16px rgba(83,226,255,.40))}
+.panel-hud{font-size:6px;letter-spacing:.15em;background:rgba(2,10,18,.72)}
+.command-center{min-height:194px}.command-center .mic-button{height:136px}
+.quick-grid{gap:5px}.quick-grid button{height:35px}
+.chat-card{min-height:170px}
+.footer-strip{height:24px;background:#02060c;border-top:1px solid rgba(83,189,255,.16)}
+.is-listening .ultron-avatar{transform:translateY(-7px) scale(1.065)}
+.is-processing .ultron-avatar{transform:translateY(-7px) scale(1.045)}
+@media (max-width:1100px){.workspace-main{grid-template-columns:138px minmax(0,1fr) 150px}.ultron-avatar{width:min(340px,78%)}}
+@media (max-width:900px){.sidebar{width:auto}.workspace-main{grid-template-columns:1fr}.core-panel{min-height:580px}.ultron-avatar{width:min(360px,80vw)}}
