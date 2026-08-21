@@ -1,0 +1,25 @@
+/* ULTRON ultra-reference pass */
+.shell{background:#02060c;color:#b8d8ea}
+.app-grid{gap:7px}.workspace-main{gap:7px}.left-stack,.right-stack,.command-column{gap:7px}
+.card,.panel{border-radius:5px}.card-title{font-size:8px;letter-spacing:.12em}
+.core-panel{border-radius:6px!important;min-height:0;background:radial-gradient(circle at 50% 46%,rgba(34,117,164,.20),transparent 48%),linear-gradient(180deg,rgba(2,12,21,.98),rgba(1,6,12,.99))!important}
+.face-stage{min-height:100%;background:radial-gradient(circle at 50% 46%,rgba(71,221,255,.15),transparent 24%),radial-gradient(circle at 50% 54%,rgba(128,69,255,.09),transparent 51%),rgba(1,6,12,.32)}
+.face-stage:before{width:94%;height:94%;border-color:rgba(83,220,255,.075)}
+.face-stage:after{width:72%;height:72%;border-color:rgba(182,101,255,.13)}
+.ultron-avatar{width:min(370px,82%);transform:translateY(-7px) scale(1.035);filter:drop-shadow(0 0 27px rgba(84,230,255,.63)) drop-shadow(0 0 98px rgba(124,67,255,.30))}
+.ultron-face-svg{filter:contrast(1.17) saturate(1.18) brightness(1.035)}
+.ultron-face-svg path:nth-of-type(4){filter:drop-shadow(0 0 11px rgba(200,74,255,.88))}
+.avatar-glow{inset:0;background:radial-gradient(circle at 50% 44%,rgba(88,235,255,.34),rgba(127,69,255,.18) 43%,transparent 72%);filter:blur(32px)}
+.avatar-scanline{left:6%;right:6%;box-shadow:0 0 34px rgba(129,239,255,.98)}
+.core-platform{width:75%;filter:drop-shadow(0 0 15px rgba(78,222,255,.40))}
+.panel-hud{font-size:6.4px;letter-spacing:.14em}
+.left-stack .card,.right-stack .card{min-height:0}
+.metrics-card .meter{margin-bottom:7px}.modules-card .module,.summary-card .summary-row{min-height:28px}
+.command-center{border-color:rgba(82,212,255,.38)!important}.command-center h3{font-size:14px;letter-spacing:.015em}.command-center .mic-button{height:136px}
+.mic-button::before{width:150px;height:150px}.mic-button::after{width:210px;height:210px}
+.quick-grid{grid-template-columns:repeat(4,1fr)}
+.chat-card{min-height:0}.chat-scroll{max-height:76px;overflow:auto}
+.activity-row{min-height:25px}
+.topbar{height:52px}.brand strong{font-size:11px}.top-center strong{font-size:10px}.top-center small{font-size:6px}
+@media (max-width:1100px){.ultron-avatar{width:min(332px,79%)}}
+@media (max-width:900px){.topbar{height:auto}.core-panel{min-height:610px}.ultron-avatar{width:min(368px,81vw)}.quick-grid{grid-template-columns:repeat(4,1fr)}}
