@@ -1,0 +1,38 @@
+/* ULTRON command-depth reference pass */
+.shell{isolation:isolate}
+.topbar,.app-grid,.footer-strip{position:relative;z-index:3}
+.topbar::after{content:"";position:absolute;left:18px;right:18px;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(85,220,255,.28) 22%,rgba(135,94,255,.22) 50%,rgba(85,220,255,.28) 78%,transparent);box-shadow:0 0 12px rgba(79,206,255,.14);pointer-events:none}
+.brand-orb{position:relative;overflow:hidden}.brand-orb::after{content:"";position:absolute;inset:4px;border:1px dashed rgba(113,225,255,.3);border-radius:50%;animation:spin 8s linear infinite}
+.core-panel{box-shadow:inset 0 0 80px rgba(28,178,255,.08),inset 0 0 0 1px rgba(129,228,255,.035),0 0 54px rgba(28,128,216,.12)!important}
+.core-panel::before{box-shadow:inset 0 0 0 1px rgba(109,225,255,.05),0 0 22px rgba(85,210,255,.05)}
+.face-stage{background:radial-gradient(circle at 50% 48%,rgba(50,211,255,.17),transparent 27%),radial-gradient(circle at 50% 52%,rgba(117,64,255,.095),transparent 54%),rgba(2,8,16,.18)}
+.face-stage::after{box-shadow:0 0 42px rgba(180,98,255,.1),0 0 12px rgba(90,219,255,.08)}
+.face-stage .globe-a{filter:drop-shadow(0 0 8px rgba(62,218,255,.12))}.face-stage .globe-b{filter:drop-shadow(0 0 8px rgba(71,218,255,.09))}.face-stage .globe-c{filter:drop-shadow(0 0 10px rgba(178,98,255,.12))}
+.ultron-avatar{filter:drop-shadow(0 0 24px rgba(78,229,255,.58)) drop-shadow(0 0 82px rgba(124,67,255,.26))}
+.ultron-avatar::before{box-shadow:inset 0 0 36px rgba(73,211,255,.11),0 0 16px rgba(69,209,255,.04)}
+.ultron-face-svg path:nth-of-type(4){filter:drop-shadow(0 0 10px rgba(196,74,255,.8))}
+.avatar-scanline{box-shadow:0 0 28px rgba(126,238,255,.95)}
+.panel-hud{border-color:rgba(90,218,255,.19);box-shadow:inset 0 0 14px rgba(53,197,255,.04),0 0 12px rgba(57,197,255,.05)}
+.left-stack .card,.right-stack .card{box-shadow:inset 0 0 26px rgba(28,164,226,.035),0 0 28px rgba(16,100,174,.06)}
+.command-column .card{box-shadow:inset 0 0 32px rgba(29,164,226,.045),0 0 32px rgba(16,99,174,.08)}
+.command-center .mic-button{height:128px}
+.command-center .mic-button::before{width:146px;height:146px;border-color:rgba(82,224,255,.15)}
+.command-center .mic-button::after{width:204px;height:204px;border-color:rgba(156,98,255,.14)}
+.command-center .small-label{margin-top:7px}
+.suggest{box-shadow:inset 0 0 14px rgba(54,180,231,.025)}
+.suggest:hover{border-color:rgba(88,220,255,.4);background:linear-gradient(90deg,rgba(38,148,218,.12),rgba(116,76,255,.065));box-shadow:inset 0 0 20px rgba(60,208,255,.05),0 0 10px rgba(44,176,235,.06)}
+.quick-grid button{border-radius:5px}.quick-grid button:hover{background:rgba(49,167,225,.035)}
+.activity-row{position:relative}.activity-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(86,220,255,.16),transparent);opacity:.7}
+.chat-card{background:linear-gradient(180deg,rgba(5,14,25,.985),rgba(2,8,16,.97))!important}
+.chat-row.ultron .avatar-mini{box-shadow:0 0 12px rgba(76,218,255,.10)}
+.chat-row.you .avatar-mini{border-color:rgba(181,108,255,.32);color:#d7bdff;background:rgba(48,22,72,.35)}
+.chat-input{box-shadow:inset 0 0 18px rgba(45,177,236,.045),0 0 10px rgba(38,167,228,.03)}
+.chat-input input:focus{caret-color:#69e5ff}
+.system-chip b{letter-spacing:.13em}.clock{font-variant-numeric:tabular-nums}
+@keyframes commandSweep{0%{transform:translateX(-110%);opacity:0}20%{opacity:.3}80%{opacity:.18}100%{transform:translateX(110%);opacity:0}}
+.command-center::before{background:linear-gradient(90deg,transparent 0 18%,rgba(86,217,255,.025) 26%,transparent 38% 62%,rgba(164,92,255,.025) 74%,transparent 82%)}
+.command-center .mic-button::after{animation:commandSweep 3.8s ease-in-out infinite}
+.is-listening .command-center .mic-button::after{animation-duration:1.5s}
+.is-processing .command-center .mic-button::after{animation-duration:1s}
+@media (prefers-reduced-motion:reduce){.brand-orb::after,.command-center .mic-button::after{animation:none!important}}
+@media (max-width:900px){.core-panel{min-height:575px}.command-center .mic-button{height:132px}.ultron-avatar{width:min(340px,77vw)}}
