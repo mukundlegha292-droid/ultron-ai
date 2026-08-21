@@ -22,13 +22,8 @@ function UltronFace() {
       <div className="avatar-glow" />
       <svg className="ultron-face-svg" viewBox="0 0 420 520" role="img" aria-label="ULTRON robotic face">
         <defs>
-          <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#dff9ff"/><stop offset=".18" stopColor="#8ac6da"/><stop offset=".43" stopColor="#17445b"/>
-            <stop offset=".65" stopColor="#77bed7"/><stop offset=".86" stopColor="#0c2432"/><stop offset="1" stopColor="#02070c"/>
-          </linearGradient>
-          <linearGradient id="jaw" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#dbfbff"/><stop offset=".3" stopColor="#61a8c0"/><stop offset=".7" stopColor="#173f54"/><stop offset="1" stopColor="#040c12"/>
-          </linearGradient>
+          <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#dff9ff"/><stop offset=".18" stopColor="#8ac6da"/><stop offset=".43" stopColor="#17445b"/><stop offset=".65" stopColor="#77bed7"/><stop offset=".86" stopColor="#0c2432"/><stop offset="1" stopColor="#02070c"/></linearGradient>
+          <linearGradient id="jaw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#dbfbff"/><stop offset=".3" stopColor="#61a8c0"/><stop offset=".7" stopColor="#173f54"/><stop offset="1" stopColor="#040c12"/></linearGradient>
           <radialGradient id="eye"><stop stopColor="#fff"/><stop offset=".15" stopColor="#eda8ff"/><stop offset=".45" stopColor="#b338ef"/><stop offset="1" stopColor="#21002d"/></radialGradient>
           <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
@@ -62,11 +57,21 @@ function App() {
   useEffect(() => {
     inputRef.current?.focus();
     const timer = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(timer);
+    const keyboard = (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        inputRef.current?.focus();
+      }
+      if (event.key === 'Escape') {
+        setCommand('');
+        inputRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', keyboard);
+    return () => { clearInterval(timer); window.removeEventListener('keydown', keyboard); };
   }, []);
 
   const addEvent = (text) => setEvents((current) => [text, ...current].slice(0, 4));
-
   const runCommand = (value = command) => {
     const text = value.trim();
     if (!text) return;
@@ -74,31 +79,18 @@ function App() {
     addEvent(`AI Processing: ${text}`);
     setCommand('');
   };
-
   const toggleVoice = () => {
     if (!recognitionSupported) return addEvent('Voice Recognition unavailable');
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
-    recognition.lang = 'en-IN';
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-    setListening(true);
-    addEvent('Voice Recognition listening');
-    recognition.onresult = (event) => {
-      setCommand(event.results[0][0].transcript);
-      setListening(false);
-      addEvent('Voice command captured');
-    };
+    recognition.lang = 'en-IN'; recognition.interimResults = false; recognition.maxAlternatives = 1;
+    setListening(true); addEvent('Voice Recognition listening');
+    recognition.onresult = (event) => { setCommand(event.results[0][0].transcript); setListening(false); addEvent('Voice command captured'); };
     recognition.onerror = () => { setListening(false); addEvent('Voice channel error'); };
     recognition.onend = () => setListening(false);
     recognition.start();
   };
-
-  const chooseNav = (label) => {
-    setActive(label);
-    addEvent(`${label} module selected`);
-  };
-
+  const chooseNav = (label) => { setActive(label); addEvent(`${label} module selected`); };
   const openQuick = (label) => addEvent(`Quick Access: ${label}`);
   const formattedTime = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
   const formattedDate = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
