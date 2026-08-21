@@ -1,0 +1,16 @@
+/* ULTRON final interface tuning — reference-safe */
+.topbar{border-bottom-color:rgba(93,208,255,.22)}
+.app-grid{padding-top:9px}
+.sidebar nav button{transition:background .16s ease,border-color .16s ease,transform .16s ease}
+.sidebar nav button:hover{transform:translateX(1px);border-color:rgba(85,216,255,.14);background:rgba(10,35,55,.26)}
+.core-card,.metrics-card,.modules-card,.summary-card{backdrop-filter:blur(9px)}
+.meter i{box-shadow:inset 0 0 0 1px rgba(94,212,255,.035)}
+.module{border-bottom:1px solid rgba(92,209,255,.055)}
+.summary-row{border-bottom:1px solid rgba(92,209,255,.055)}
+.chat-card{backdrop-filter:blur(10px)}
+.chat-row.you .avatar-mini{order:2}
+.chat-row.you div{text-align:right}
+.command-center h3{letter-spacing:.02em}
+.command-center .suggest:active,.quick-grid button:active{transform:scale(.985)}
+.footer-strip{border-top-color:rgba(86,206,255,.16)}
+@media(prefers-reduced-motion:reduce){.sidebar nav button{transition:none!important}.command-center .suggest:active,.quick-grid button:active{transform:none}}
