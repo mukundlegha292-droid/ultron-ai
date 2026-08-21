@@ -1,0 +1,20 @@
+/* ULTRON first-reference lock — final precision */
+.shell{background:#02050a}
+.app-grid{grid-template-columns:174px minmax(0,1fr) 274px;gap:10px}
+.topbar{height:58px}
+.sidebar{width:174px}
+.core-card,.core-panel{min-width:0;overflow:hidden}
+.ultron-avatar{width:min(372px,80%);transform:translateY(-8px) scale(1.04)}
+.avatar-glow{opacity:.86}
+.face-stage .globe-a{opacity:.58}
+.face-stage .globe-b{opacity:.72}
+.face-stage .globe-c{opacity:.48}
+.core-platform{transform:scale(1.04)}
+.left-stack,.right-stack{gap:8px}
+.left-stack .card,.right-stack .card,.command-column .card{border-radius:7px}
+.command-center{padding:12px;border-radius:8px}
+.command-center .mic-button{height:136px}
+.quick-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.footer-strip{height:26px}
+@media(max-width:1100px){.app-grid{grid-template-columns:154px minmax(0,1fr) 246px}.sidebar{width:154px}.ultron-avatar{width:min(350px,79%)}}
+@media(max-width:900px){.app-grid{grid-template-columns:1fr}.sidebar{width:auto}.ultron-avatar{width:min(356px,82vw)}}
