@@ -1,0 +1,17 @@
+/* ULTRON first-reference composition lock — no layout drift */
+.shell{isolation:isolate}
+.app-grid{grid-template-columns:174px minmax(0,1fr);gap:10px;padding:10px 14px 7px}
+.workspace{grid-template-columns:minmax(0,1fr) 274px;gap:10px}
+.workspace-main{grid-template-columns:145px minmax(300px,1fr) 170px;grid-template-rows:minmax(260px,1fr) 186px;gap:8px}
+.topbar{height:58px;flex-basis:58px;padding:0 16px}
+.core-panel{min-height:0}
+.ultron-avatar{width:min(382px,82%);transform:translateY(-8px) scale(1.045)}
+.face-stage{background:radial-gradient(circle at 50% 43%,rgba(76,218,255,.105),transparent 29%),radial-gradient(circle at 50% 61%,rgba(113,67,255,.07),transparent 40%),transparent}
+.core-platform{bottom:4%;width:59%}
+.left-stack,.right-stack,.command-column{gap:8px}
+.chat-card{grid-column:1/4}
+.command-center{min-height:0}
+.quick-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1100px){.app-grid{grid-template-columns:154px minmax(0,1fr);gap:8px;padding-left:10px;padding-right:10px}.workspace{grid-template-columns:minmax(0,1fr) 246px}.workspace-main{grid-template-columns:136px minmax(280px,1fr) 160px}.ultron-avatar{width:min(358px,80%)}}
+@media(max-width:900px){.app-grid{grid-template-columns:1fr;padding:8px}.workspace{grid-template-columns:1fr}.workspace-main{grid-template-columns:1fr;grid-template-rows:auto;}.chat-card{grid-column:auto}.ultron-avatar{width:min(360px,82vw)}}
+@media(prefers-reduced-motion:reduce){.ultron-avatar,.globe-a,.globe-b,.globe-c,.avatar-scanline{animation:none!important}}
