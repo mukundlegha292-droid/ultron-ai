@@ -59,6 +59,18 @@
 .core-card:after,.metrics-card:after,.modules-card:after,.summary-card:after,.chat-card:after,.command-center:after,.quick-card:after,.activity-card:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;mask-image:linear-gradient(90deg,transparent 0 7%,#000 8% 92%,transparent 93%);border-top:1px solid rgba(98,216,255,.07);border-bottom:1px solid rgba(98,216,255,.04)}
 .command-center h3{letter-spacing:.01em;text-shadow:0 0 12px rgba(137,218,255,.18)}
 .mic-button span{text-transform:uppercase;letter-spacing:.14em}
+/* next continuous pass */
+.core-panel .face-stage{isolation:isolate}
+.core-panel .face-stage:global(.x){display:block}
+.face-stage .globe,.face-stage .scan-grid,.face-stage .ultron-avatar,.face-stage .core-platform{will-change:transform,opacity,filter}
+.face-stage .globe-a{border-color:rgba(89,214,255,.19)}
+.face-stage .globe-b{border-color:rgba(126,224,255,.18)}
+.face-stage .globe-c{border-color:rgba(181,108,255,.25)}
+.face-stage .scan-grid{opacity:.95}
+.ultron-face-svg path{vector-effect:non-scaling-stroke}
+.core-card,.metrics-card,.modules-card,.summary-card,.chat-card,.command-center,.quick-card,.activity-card{backdrop-filter:blur(9px)}
+.core-card:focus-within,.metrics-card:focus-within,.modules-card:focus-within,.summary-card:focus-within,.chat-card:focus-within,.command-center:focus-within{border-color:rgba(91,212,255,.5);box-shadow:inset 0 0 34px rgba(29,169,234,.055),0 0 26px rgba(31,152,218,.12)}
+.activity-chart{background-size:100% 100%,14px 14px;box-shadow:inset 0 0 18px rgba(65,200,255,.035)}
 @keyframes horizon{0%,100%{transform:rotateX(68deg) scaleX(.88);opacity:.28}50%{transform:rotateX(68deg) scaleX(1.1);opacity:.82}}
 @keyframes micPulse{50%{transform:scale(1.1)}}
 @keyframes onlineGlow{50%{text-shadow:0 0 12px rgba(82,228,169,.66)}}
@@ -68,3 +80,7 @@
 @keyframes modulePulse{50%{text-shadow:0 0 10px rgba(90,231,194,.5)}}
 @media (max-width:1100px){.workspace-main{grid-template-columns:130px minmax(220px,1fr) 150px}.workspace{grid-template-columns:minmax(0,1fr) 210px}.topbar{grid-template-columns:200px 1fr 260px}.top-center small{display:none}.ultron-avatar{width:min(308px,73%)}}
 @media (max-width:900px){body{overflow:auto}.topbar{grid-template-columns:1fr auto;height:auto;min-height:64px;padding:9px 14px}.top-center{display:none}.top-right{gap:6px}.window{display:none}.app-grid{grid-template-columns:1fr;padding:8px}.sidebar{order:2}.workspace{grid-template-columns:1fr}.workspace-main{grid-template-columns:1fr;grid-template-rows:auto}.left-stack,.right-stack{grid-template-rows:auto}.chat-card{grid-column:auto;min-height:190px}.core-panel{min-height:550px}.command-column{grid-template-rows:auto}.ultron-avatar{width:min(342px,75vw)}.footer-strip{display:none}}
+.sidebar{box-shadow:inset 0 0 30px rgba(25,153,222,.025),0 0 28px rgba(17,98,177,.07)}
+.sidebar:after{content:"AI COMMAND";display:block;margin-top:8px;padding:7px 8px;border-top:1px solid rgba(82,211,255,.1);font:600 6px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em;color:rgba(101,164,198,.45);text-align:center}
+.command-center:after{content:"QUANTUM CHANNEL // SECURE";display:block;margin-top:8px;text-align:center;font:600 5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;color:rgba(92,191,230,.35)}
+.modules-card .module em{letter-spacing:.08em}.quick-card{background:linear-gradient(180deg,rgba(6,17,30,.96),rgba(4,10,20,.9))}
