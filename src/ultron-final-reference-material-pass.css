@@ -1,0 +1,14 @@
+/* ULTRON final reference material pass — preserve composition */
+.core-panel{isolation:isolate}
+.core-panel:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 44%,rgba(102,226,255,.055),transparent 30%),linear-gradient(115deg,transparent 20%,rgba(126,232,255,.025) 50%,transparent 80%);mix-blend-mode:screen;z-index:1}
+.face-stage{z-index:2}
+.ultron-face-svg{filter:contrast(1.25) saturate(1.22) brightness(1.045) drop-shadow(0 0 6px rgba(154,241,255,.18))}
+.ultron-avatar{transform:translateY(-11px) scale(1.052);filter:drop-shadow(0 0 30px rgba(88,228,255,.64)) drop-shadow(0 0 88px rgba(122,72,255,.25))}
+.avatar-glow{opacity:.94;filter:blur(42px)}
+.face-stage .globe-a{border-color:rgba(87,214,255,.24);box-shadow:inset 0 0 46px rgba(34,207,255,.13),0 0 26px rgba(35,190,255,.17)}
+.face-stage .globe-b{border-color:rgba(88,213,255,.2);box-shadow:inset 0 0 34px rgba(37,183,255,.09),0 0 20px rgba(97,96,255,.13)}
+.face-stage .globe-c{box-shadow:inset 0 0 24px rgba(190,98,255,.11),0 0 18px rgba(185,98,255,.14)}
+.core-platform{width:62%;filter:drop-shadow(0 0 24px rgba(69,222,255,.44))}
+@media(max-width:1100px){.ultron-avatar{width:min(366px,81%)}}
+@media(max-width:900px){.ultron-avatar{width:min(366px,82vw)}}
+@media(prefers-reduced-motion:reduce){.ultron-avatar,.avatar-glow,.avatar-scanline,.face-stage .globe-a,.face-stage .globe-b,.face-stage .globe-c{animation:none!important}}
