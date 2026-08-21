@@ -6,10 +6,12 @@ const navItems = [
   ['⌂', 'Dashboard'], ['◌', 'Chat'], ['✓', 'Tasks'], ['▣', 'Files'], ['◎', 'Browser'],
   ['⌘', 'Code'], ['◈', 'System Tools'], ['◉', 'Memory'], ['⚙', 'Settings'],
 ];
+
 const modules = [
   ['◈', 'AI Brain', 'ONLINE'], ['◉', 'Voice System', 'ONLINE'], ['▣', 'Memory Core', 'ONLINE'],
   ['▤', 'File System', 'STANDBY'], ['◎', 'Browser', 'ONLINE'], ['⌘', 'Code Engine', 'STANDBY'],
 ];
+
 const suggested = ['Open my project folder', 'Analyze this document', 'Search on the web', 'Show system performance'];
 const quick = [['▶', 'YouTube'], ['●', 'GitHub'], ['▣', 'VS Code'], ['G', 'Google'], ['N', 'Notion'], ['D', 'Drive'], ['◉', 'WhatsApp'], ['in', 'LinkedIn']];
 const initialEvents = ['Voice Recognition', 'AI Processing', 'Data Sync', 'Background Tasks'];
@@ -48,50 +50,71 @@ function UltronFace() {
 }
 
 function App() {
+  const [active, setActive] = useState('Dashboard');
   const [command, setCommand] = useState('');
   const [events, setEvents] = useState(initialEvents);
   const [listening, setListening] = useState(false);
   const [chat, setChat] = useState([{ from: 'ultron', text: 'I can help you with file management, web browsing, code execution, data analysis, automation, and much more. Just give me a command.' }]);
-  const [activeNav, setActiveNav] = useState('Dashboard');
+  const [now, setNow] = useState(new Date());
   const inputRef = useRef(null);
   const recognitionSupported = useMemo(() => typeof window !== 'undefined' && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window), []);
-  const currentTime = new Intl.DateTimeFormat('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true }).format(new Date());
-  const currentDate = new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).format(new Date()).toUpperCase();
 
-  useEffect(() => inputRef.current?.focus(), []);
+  useEffect(() => {
+    inputRef.current?.focus();
+    const timer = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const addEvent = (text) => setEvents((e) => [text, ...e].slice(0, 4));
+  const addEvent = (text) => setEvents((current) => [text, ...current].slice(0, 4));
+
   const runCommand = (value = command) => {
     const text = value.trim();
     if (!text) return;
-    setChat((c) => [...c.slice(-3), { from: 'you', text }, { from: 'ultron', text: 'Command received. I am ready to process that request.' }]);
+    setChat((current) => [...current.slice(-3), { from: 'you', text }, { from: 'ultron', text: 'Command received. I am ready to process that request.' }]);
     addEvent(`AI Processing: ${text}`);
     setCommand('');
   };
+
   const toggleVoice = () => {
     if (!recognitionSupported) return addEvent('Voice Recognition unavailable');
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
-    recognition.lang = 'en-IN'; recognition.interimResults = false;
-    setListening(true); addEvent('Voice Recognition listening');
-    recognition.onresult = (e) => { setCommand(e.results[0][0].transcript); setListening(false); addEvent('Voice command captured'); };
+    recognition.lang = 'en-IN';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    setListening(true);
+    addEvent('Voice Recognition listening');
+    recognition.onresult = (event) => {
+      setCommand(event.results[0][0].transcript);
+      setListening(false);
+      addEvent('Voice command captured');
+    };
     recognition.onerror = () => { setListening(false); addEvent('Voice channel error'); };
-    recognition.onend = () => setListening(false); recognition.start();
+    recognition.onend = () => setListening(false);
+    recognition.start();
   };
-  const quickCommand = (label) => runCommand(`Open ${label}`);
+
+  const chooseNav = (label) => {
+    setActive(label);
+    addEvent(`${label} module selected`);
+  };
+
+  const openQuick = (label) => addEvent(`Quick Access: ${label}`);
+  const formattedTime = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  const formattedDate = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
 
   return (
     <main className={`shell ${listening ? 'is-listening' : ''}`}>
       <header className="topbar">
         <div className="brand"><div className="brand-orb">◈</div><div><strong>ULTRON AI</strong><small>COMMAND SYSTEM</small></div></div>
         <div className="top-center"><strong>ULTRON AI <span>v2.0</span></strong><small>Hyper-Intelligent Platform. Your Strategic Quantum-Neural Partner.</small></div>
-        <div className="top-right"><div className="system-chip">SYSTEM STATUS <b><i /> ONLINE</b></div><div className="clock">{currentTime}<small>{currentDate}</small></div><div className="window">− □ ×</div></div>
+        <div className="top-right"><div className="system-chip">SYSTEM STATUS <b><i /> ONLINE</b></div><div className="clock">{formattedTime}<small>{formattedDate}</small></div><div className="window">− □ ×</div></div>
       </header>
 
       <div className="app-grid">
         <aside className="sidebar panel">
-          <nav>{navItems.map(([icon, label]) => <button key={label} onClick={() => { setActiveNav(label); addEvent(`${label} module selected`); }} className={activeNav === label ? 'active' : ''}><span>{icon}</span>{label}{activeNav === label && <em />}</button>)}</nav>
-          <div className="voice-status"><div className="label">VOICE STATUS</div><div className="waveform"><span/><span/><span/><span/><span/><span/><span/><span/><span/></div><strong>{listening ? 'LISTENING...' : 'STANDBY'}</strong></div>
+          <nav>{navItems.map(([icon, label]) => <button key={label} className={active === label ? 'active' : ''} onClick={() => chooseNav(label)}><span>{icon}</span>{label}{active === label && <em />}</button>)}</nav>
+          <div className="voice-status"><div className="label">VOICE STATUS</div><div className="waveform">{Array.from({ length: 9 }, (_, i) => <span key={i} />)}</div><strong>{listening ? 'LISTENING...' : 'STANDBY'}</strong></div>
           <button className="power-card" onClick={toggleVoice}><div>◉</div><span>ULTRON SYSTEM<small>Ready for Command</small></span></button>
         </aside>
 
@@ -99,7 +122,7 @@ function App() {
           <div className="workspace-main">
             <aside className="left-stack">
               <section className="card core-card"><div className="card-title">ULTRON CORE <span>AI SYSTEM ONLINE ●</span></div><h2>Hello Mukund.</h2><p>Systems online and fully operational. I am ready to assist you.</p><div className="version">Core Upgrade v2.0</div></section>
-              <section className="card metrics-card"><div className="card-title">SYSTEM METRICS</div>{[['GPU Usage','23%'],['Memory','45%'],['Disk Space','62%'],['Network','78%']].map(([label, value]) => <div className="meter" key={label}><div><span>{label}</span><b>{value}</b></div><i><u style={{width:value}} /></i></div>)}</section>
+              <section className="card metrics-card"><div className="card-title">SYSTEM METRICS</div>{[['GPU Usage','23%'],['Memory','45%'],['Disk Space','62%'],['Network','78%']].map(([label, value]) => <div className="meter" key={label}><div><span>{label}</span><b>{value}</b></div><i><u style={{ width: value }} /></i></div>)}</section>
             </aside>
 
             <section className="core-panel card">
@@ -112,13 +135,13 @@ function App() {
               <section className="card summary-card"><div className="card-title">TODAY'S SUMMARY</div><div className="summary-row"><span>Tasks Completed</span><b>12</b></div><div className="summary-row"><span>Files Analyzed</span><b>8</b></div><div className="summary-row"><span>Commands Executed</span><b>26</b></div><div className="summary-row"><span>Time Saved</span><b>2h 15m</b></div></section>
             </aside>
 
-            <section className="card chat-card"><div className="card-title">CHAT WITH ULTRON <span className="mode">LOCAL MODE</span></div><div className="chat-scroll">{chat.map((m, i) => <div className={`chat-row ${m.from}`} key={i}><span className="avatar-mini">U</span><div><b>{m.from === 'you' ? 'You:' : 'Ultron:'}</b> {m.text}</div></div>)}</div><div className="chat-input"><input ref={inputRef} value={command} onChange={(e) => setCommand(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && runCommand()} placeholder="Type your command..."/><button onClick={() => runCommand()}>➤</button></div></section>
+            <section className="card chat-card"><div className="card-title">CHAT WITH ULTRON <span className="mode">LOCAL MODE</span></div><div className="chat-scroll">{chat.map((message, index) => <div className={`chat-row ${message.from}`} key={index}><span className="avatar-mini">U</span><div><b>{message.from === 'you' ? 'You:' : 'Ultron:'}</b> {message.text}</div></div>)}</div><div className="chat-input"><input ref={inputRef} value={command} onChange={(event) => setCommand(event.target.value)} onKeyDown={(event) => event.key === 'Enter' && runCommand()} placeholder="Type your command..."/><button onClick={() => runCommand()}>➤</button></div></section>
           </div>
 
           <aside className="command-column">
             <section className="card command-center"><div className="card-title">COMMAND CENTER</div><h3>Give me a command.</h3><button className="mic-button" onClick={toggleVoice}><div className="mic-core">◉</div><span>{listening ? 'LISTENING...' : 'Tap to speak'}</span></button><div className="small-label">SUGGESTED COMMANDS</div>{suggested.map((item) => <button className="suggest" key={item} onClick={() => runCommand(item)}>“{item}” <b>+</b></button>)}</section>
-            <section className="card quick-card"><div className="card-title">QUICK ACCESS</div><div className="quick-grid">{quick.map(([icon, label]) => <button key={label} onClick={() => quickCommand(label)}><span>{icon}</span><small>{label}</small></button>)}</div></section>
-            <section className="card activity-card"><div className="card-title">SYSTEM ACTIVITY <span className="reset" onClick={() => setEvents(initialEvents)}>Reset</span></div><div className="activity-chart"/>{events.map((e, i) => <div className="activity-row" key={`${e}-${i}`}><i/><span>{e}<small>{i < 2 ? 'Active' : 'Idle'}</small></span></div>)}</section>
+            <section className="card quick-card"><div className="card-title">QUICK ACCESS</div><div className="quick-grid">{quick.map(([icon, label]) => <button key={label} onClick={() => openQuick(label)}><span>{icon}</span><small>{label}</small></button>)}</div></section>
+            <section className="card activity-card"><div className="card-title">SYSTEM ACTIVITY <button className="reset" type="button" onClick={() => setEvents(initialEvents)}>Reset</button></div><div className="activity-chart"/>{events.map((event, index) => <div className="activity-row" key={`${event}-${index}`}><i/><span>{event}<small>{index < 3 ? 'Active' : 'Idle'}</small></span></div>)}</section>
           </aside>
         </section>
       </div>
