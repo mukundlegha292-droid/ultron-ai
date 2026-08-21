@@ -1,0 +1,19 @@
+/* ULTRON reference command behavior layer */
+.shell{isolation:isolate}
+.command-center{position:relative;overflow:hidden}
+.command-center:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(70,214,255,.035),transparent);transform:translateX(-110%);animation:ultronCommandSweep 5.2s ease-in-out infinite}
+.command-center .mic-button{position:relative;transition:transform .28s ease,filter .28s ease,box-shadow .28s ease}
+.command-center .mic-button:hover{transform:scale(1.025);filter:brightness(1.08)}
+.is-listening .command-center .mic-button{filter:brightness(1.16) drop-shadow(0 0 22px rgba(76,223,255,.28));animation:ultronListenPulse 1.25s ease-in-out infinite}
+.is-processing .command-center .mic-button{filter:brightness(1.2) drop-shadow(0 0 28px rgba(132,86,255,.26));animation:ultronProcessPulse .8s ease-in-out infinite}
+.is-listening .face-stage .ultron-avatar{filter:drop-shadow(0 0 28px rgba(88,232,255,.78)) drop-shadow(0 0 102px rgba(124,70,255,.32))}
+.is-processing .face-stage .ultron-avatar{filter:drop-shadow(0 0 30px rgba(123,235,255,.84)) drop-shadow(0 0 112px rgba(132,76,255,.38))}
+.is-listening .avatar-scanline{animation-duration:1.1s}
+.is-processing .avatar-scanline{animation-duration:.7s}
+.panel-hud,.card{transition:border-color .24s ease,box-shadow .24s ease,background .24s ease,transform .24s ease}
+.card:hover{transform:translateY(-1px)}
+.sidebar nav button:focus-visible,.quick-grid button:focus-visible,.suggest:focus-visible,.chat-input input:focus-visible{outline:1px solid rgba(106,231,255,.64);outline-offset:2px}
+@keyframes ultronCommandSweep{0%{transform:translateX(-110%);opacity:0}18%{opacity:.5}52%{opacity:.16}100%{transform:translateX(110%);opacity:0}}
+@keyframes ultronListenPulse{0%,100%{box-shadow:0 0 16px rgba(75,224,255,.18)}50%{box-shadow:0 0 30px rgba(75,224,255,.42)}}
+@keyframes ultronProcessPulse{0%,100%{box-shadow:0 0 18px rgba(128,82,255,.18)}50%{box-shadow:0 0 34px rgba(128,82,255,.44)}}
+@media(prefers-reduced-motion:reduce){.command-center:after,.is-listening .command-center .mic-button,.is-processing .command-center .mic-button{animation:none!important}.card,.panel-hud{transition:none!important}}
