@@ -1,0 +1,23 @@
+/* ULTRON final reference-screen pass */
+.shell{background-color:#02060c}
+.topbar{border-bottom-color:rgba(91,195,255,.32)}
+.top-center strong{letter-spacing:.17em;text-shadow:0 0 22px rgba(92,159,255,.28)}
+.brand-orb{animation:brandPulse 3s ease-in-out infinite}
+.core-panel{border-color:rgba(76,207,255,.52)!important}
+.face-stage{background:radial-gradient(circle at 50% 47%,rgba(43,199,255,.16),transparent 42%),radial-gradient(circle at 50% 60%,rgba(119,64,255,.08),transparent 56%)}
+.face-stage:global(.x){display:grid}
+.ultron-avatar{transform:translateY(-4px) scale(1.03)}
+.is-listening .ultron-avatar{transform:translateY(-4px) scale(1.06)}
+.is-processing .ultron-avatar{transform:translateY(-4px) scale(1.04)}
+.core-panel .panel-hud{font-size:6.5px}
+.sidebar nav button.active{box-shadow:inset 0 0 25px rgba(28,168,255,.16),0 0 16px rgba(28,168,255,.08)}
+.command-center h3{font-size:13px}
+.mic-button{box-shadow:inset 0 0 28px rgba(35,166,240,.04)}
+.is-listening .mic-button{box-shadow:inset 0 0 36px rgba(64,203,255,.12),0 0 22px rgba(48,187,255,.1)}
+.chat-input{box-shadow:inset 0 0 18px rgba(45,177,236,.035)}
+.chat-input:focus-within{border-color:rgba(91,213,255,.62);box-shadow:inset 0 0 22px rgba(45,177,236,.06),0 0 18px rgba(41,185,240,.08)}
+.quick-grid button:hover span{box-shadow:0 0 14px rgba(77,211,255,.18);border-color:rgba(91,218,255,.5)}
+.suggest:hover{box-shadow:inset 0 0 18px rgba(42,170,231,.05),0 0 12px rgba(42,170,231,.05)}
+.module:hover,.activity-row:hover,.summary-row:hover{box-shadow:inset 0 0 18px rgba(43,165,225,.035)}
+@keyframes brandPulse{50%{box-shadow:0 0 26px rgba(41,201,255,.75),inset 0 0 16px rgba(69,215,255,.38)}}
+@media (max-width:900px){.ultron-avatar{transform:translateY(-3px) scale(1.01)}}
