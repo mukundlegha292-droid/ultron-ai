@@ -1,0 +1,59 @@
+:root{--u-cyan:#57ddff;--u-blue:#2e8fff;--u-purple:#a56bff;--u-green:#55e7b0;--u-panel:rgba(5,14,25,.94)}
+
+.shell{isolation:isolate}
+.shell::before{opacity:.9}
+
+.card,.panel{position:relative;overflow:hidden;border-color:rgba(76,190,255,.30);background:linear-gradient(180deg,rgba(7,18,31,.96),rgba(3,9,18,.92));box-shadow:inset 0 1px rgba(188,240,255,.07),inset 0 -1px rgba(0,0,0,.55),0 12px 34px rgba(0,0,0,.26),0 0 28px rgba(26,133,214,.07);}
+.card::before,.panel::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(111,224,255,.05),transparent 24%,transparent 72%,rgba(155,101,255,.045));}
+.card:hover,.panel:hover{border-color:rgba(88,210,255,.42);box-shadow:inset 0 1px rgba(209,247,255,.09),0 16px 42px rgba(0,0,0,.30),0 0 34px rgba(41,155,255,.10);}
+
+.core-panel{border-color:rgba(74,208,255,.48);box-shadow:inset 0 0 55px rgba(32,178,255,.08),0 0 46px rgba(31,134,255,.09)}
+.face-stage{background:radial-gradient(circle at center,rgba(58,213,255,.15),transparent 30%),radial-gradient(circle at center,rgba(104,72,255,.09),transparent 48%);}
+.face-stage::before{content:"";position:absolute;width:88%;height:88%;border-radius:50%;border:1px solid rgba(90,221,255,.10);box-shadow:inset 0 0 80px rgba(26,185,255,.06);}
+.face-stage::after{content:"";position:absolute;width:56%;height:56%;border-radius:50%;border:1px solid rgba(171,96,255,.17);transform:rotateX(72deg);animation:orbitTilt 7s linear infinite;}
+
+.globe-a{box-shadow:inset 0 0 34px rgba(31,209,255,.11),0 0 34px rgba(37,159,255,.11)}
+.globe-b{border-color:rgba(98,225,255,.23);box-shadow:0 0 20px rgba(74,205,255,.06)}
+.globe-c{box-shadow:0 0 22px rgba(178,96,255,.10)}
+.scan-grid{opacity:.82}
+
+.ultron-avatar{width:min(300px,70%);filter:drop-shadow(0 0 18px rgba(64,225,255,.50)) drop-shadow(0 0 62px rgba(132,62,255,.19));transform:translateY(-2%);}
+.ultron-face-svg{filter:contrast(1.04) saturate(1.08)}
+.ultron-avatar::before{content:"";position:absolute;inset:7% 8% 9%;border-radius:45%;border:1px solid rgba(172,240,255,.10);box-shadow:inset 0 0 26px rgba(56,201,255,.10);pointer-events:none}
+.avatar-glow{inset:5% 7% 4%;background:radial-gradient(circle,rgba(83,224,255,.24),rgba(117,62,255,.10) 46%,transparent 74%);filter:blur(24px)}
+.avatar-scanline{height:3px;left:9%;right:9%;top:7%;box-shadow:0 0 22px rgba(116,235,255,.88);animation:scanHero 3.8s linear infinite}
+
+.panel-hud{padding:4px 7px;border:1px solid rgba(85,213,255,.15);border-radius:4px;background:rgba(3,12,22,.58);backdrop-filter:blur(5px)}
+.panel-hud.left{left:12px}.panel-hud.right{right:12px}
+
+.sidebar nav button:hover{border-color:rgba(79,205,255,.20);background:rgba(38,125,187,.08);color:#c6efff}
+.sidebar nav button.active{box-shadow:inset 0 0 26px rgba(26,168,255,.13),0 0 18px rgba(28,173,255,.08)}
+.voice-status{box-shadow:inset 0 0 30px rgba(44,198,255,.07),0 0 18px rgba(32,151,255,.06)}
+.power-card:hover{border-color:rgba(88,220,255,.46);box-shadow:0 0 26px rgba(55,214,255,.10),inset 0 0 18px rgba(57,211,255,.06)}
+
+.command-center{box-shadow:inset 0 0 34px rgba(38,162,255,.06),0 0 26px rgba(0,110,255,.06)}
+.mic-button{border-radius:10px;position:relative}
+.mic-button::before{content:"";position:absolute;width:132px;height:132px;border-radius:50%;border:1px solid rgba(76,221,255,.12);animation:micRing 3.6s ease-in-out infinite}
+.mic-button::after{content:"";position:absolute;width:184px;height:184px;border-radius:50%;border:1px dashed rgba(144,106,255,.11);animation:spin 17s linear infinite}
+.mic-core{position:relative;z-index:2}
+.is-listening .mic-core{box-shadow:0 0 30px rgba(83,231,255,.80),0 0 62px rgba(155,77,255,.18),inset 0 0 18px rgba(115,232,255,.18);animation:micPulse .9s ease-in-out infinite}
+.is-processing .mic-core{box-shadow:0 0 26px rgba(164,110,255,.65),0 0 60px rgba(74,193,255,.18);animation:processingPulse 1s ease-in-out infinite}
+
+.suggest:hover{background:linear-gradient(90deg,rgba(42,151,220,.15),rgba(89,108,255,.08));box-shadow:inset 0 0 18px rgba(64,205,255,.05)}
+.quick-grid button:hover span{border-color:rgba(87,220,255,.48);box-shadow:0 0 18px rgba(62,203,255,.10);color:#c9f5ff}
+.activity-card{background:linear-gradient(180deg,rgba(6,16,29,.98),rgba(3,10,18,.95))}
+.activity-chart{box-shadow:inset 0 0 18px rgba(38,162,255,.06)}
+
+.chat-card{box-shadow:inset 0 0 22px rgba(36,175,255,.05),0 0 24px rgba(18,109,187,.06)}
+.chat-input:focus-within{border-color:rgba(84,220,255,.50);box-shadow:0 0 20px rgba(61,208,255,.08),inset 0 0 14px rgba(53,198,255,.05)}
+.chat-input button:hover{box-shadow:0 0 18px rgba(71,217,255,.25)}
+
+.footer-strip{position:relative;z-index:4;text-shadow:0 0 14px rgba(69,202,255,.16)}
+
+@keyframes orbitTilt{to{transform:rotateX(72deg) rotate(360deg)}}
+@keyframes scanHero{0%{transform:translateY(0);opacity:0}16%{opacity:.86}84%{opacity:.68}100%{transform:translateY(390px);opacity:0}}
+@keyframes micRing{50%{transform:scale(1.06);opacity:.62}}
+@keyframes micPulse{50%{transform:scale(1.045)}}
+@keyframes processingPulse{50%{transform:scale(1.035);filter:hue-rotate(10deg)}}
+
+@media (max-width:1100px){.ultron-avatar{width:min(270px,66%)}}
