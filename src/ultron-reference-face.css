@@ -1,0 +1,5 @@
+/* Master reference face: do not redesign or substitute the center ULTRON visual. */
+.ultron-avatar{width:min(440px,100%);transform:none;filter:none;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.ultron-avatar .avatar-glow,.ultron-avatar .avatar-scanline,.ultron-avatar .ultron-face-svg{display:none!important}
+.ultron-reference-face{display:block;width:100%;height:auto;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 22px rgba(56,211,255,.38))}
+@media(max-width:900px){.ultron-avatar{width:min(440px,94vw)} }
