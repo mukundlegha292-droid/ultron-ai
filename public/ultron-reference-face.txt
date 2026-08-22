@@ -1,0 +1,1 @@
+Exact reference face asset is stored in the conversation attachment and should remain the source of truth for the ULTRON center visual. Do not replace with a generated robot design.
