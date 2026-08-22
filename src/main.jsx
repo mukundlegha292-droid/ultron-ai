@@ -1,178 +1,46 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import './style.css';
+import React, { useEffect, useMemo, useState } from "react";
+import { createRoot } from "react-dom/client";
+import "./style.css";
 
-const navItems = [
-  ['⌂', 'Dashboard'], ['◌', 'Chat'], ['✓', 'Tasks'], ['▣', 'Files'], ['◎', 'Browser'],
-  ['⌘', 'Code'], ['◈', 'System Tools'], ['◉', 'Memory'], ['⚙', 'Settings'],
-];
-const modules = [
-  ['◈', 'AI Brain', 'ONLINE'], ['◉', 'Voice System', 'ONLINE'], ['▣', 'Memory Core', 'ONLINE'],
-  ['▤', 'File System', 'STANDBY'], ['◎', 'Browser', 'ONLINE'], ['⌘', 'Code Engine', 'STANDBY'],
-];
-const suggested = ['Open my project folder', 'Analyze this document', 'Search on the web', 'Show system performance'];
-const quick = [['▶', 'YouTube'], ['●', 'GitHub'], ['▣', 'VS Code'], ['G', 'Google'], ['N', 'Notion'], ['D', 'Drive'], ['◉', 'WhatsApp'], ['in', 'LinkedIn']];
-const initialEvents = ['Voice Recognition', 'AI Processing', 'Data Sync', 'Background Tasks'];
+const NAV = [["⌂","Dashboard"],["◉","Chat"],["✓","Tasks"],["▣","Files"],["◌","Browser"],["⌘","Code"],["◈","System Tools"],["◇","Memory"],["⚙","Settings"]];
+const MODULES = [["AI Brain","ONLINE"],["Voice System","ONLINE"],["Memory Core","ONLINE"],["File System","ONLINE"],["Browser","ONLINE"],["Code Engine","STANDBY"]];
+const COMMANDS=["Open my project folder","Analyze this document","Search on the web","Show system performance"];
+const QUICK=["YouTube","GitHub","VS Code","Google","Drive","Notion","WhatsApp","LinkedIn"];
 
-function UltronFace() {
-  return (
-    <div className="ultron-avatar">
-      <div className="avatar-glow" />
-      <svg className="ultron-face-svg" viewBox="0 0 420 520" role="img" aria-label="ULTRON robotic face">
-        <defs>
-          <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#dff9ff"/><stop offset=".18" stopColor="#8ac6da"/><stop offset=".43" stopColor="#17445b"/><stop offset=".65" stopColor="#77bed7"/><stop offset=".86" stopColor="#0c2432"/><stop offset="1" stopColor="#02070c"/></linearGradient>
-          <linearGradient id="jaw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#dbfbff"/><stop offset=".3" stopColor="#61a8c0"/><stop offset=".7" stopColor="#173f54"/><stop offset="1" stopColor="#040c12"/></linearGradient>
-          <radialGradient id="eye"><stop stopColor="#fff"/><stop offset=".15" stopColor="#eda8ff"/><stop offset=".45" stopColor="#b338ef"/><stop offset="1" stopColor="#21002d"/></radialGradient>
-          <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <path d="M210 22C127 22 72 80 66 158l12 176c6 91 55 144 132 157 77-13 126-66 132-157l12-176C348 80 293 22 210 22Z" fill="url(#metal)" stroke="#9cecff" strokeWidth="3"/>
-        <path d="M210 36l-30 52 30 20 30-20zM132 66l48-24-10 92-45 20zM288 66l-48-24 10 92 45 20z" fill="#bfeeff" opacity=".7"/>
-        <path d="M112 160l66-22 19 42-24 37-61-15zM308 160l-66-22-19 42 24 37 61-15z" fill="#07131d" stroke="#8de7ff" strokeOpacity=".55" strokeWidth="2"/>
-        <path d="M126 176l47-17 13 21-20 18-38-9zM294 176l-47-17-13 21 20 18 38-9z" fill="url(#eye)" filter="url(#glow)"/>
-        <path d="M210 110l-30 58 7 91 23 19 23-19 7-91z" fill="#2b6b86" stroke="#a5efff" strokeOpacity=".55" strokeWidth="2"/>
-        <path d="M210 138l-12 36 12 20 12-20z" fill="#e1fbff" opacity=".75"/>
-        <path d="M92 230l61-4 30 57-19 65-51-21-29-53zM328 230l-61-4-30 57 19 65 51-21 29-53z" fill="url(#metal)" stroke="#86e5ff" strokeOpacity=".5" strokeWidth="2"/>
-        <path d="M120 316l58-14 14 57-28 46-35-27zM300 316l-58-14-14 57 28 46 35-27z" fill="#081b26" stroke="#80e2ff" strokeOpacity=".48"/>
-        <path d="M154 356l56-13 56 13-10 75-17 28h-58l-17-28z" fill="url(#jaw)" stroke="#b5f3ff" strokeOpacity=".65" strokeWidth="3"/>
-        <path d="M176 418l34 16 34-16-12 30-22 10-22-10z" fill="#050e14" stroke="#92eaff" strokeOpacity=".58"/>
-        <path d="M152 462l22 35 19-24 17 27 17-27 19 24 22-35" fill="#0c2532" stroke="#79e3ff" strokeOpacity=".55" strokeWidth="2"/>
-      </svg>
-      <div className="avatar-scanline" />
-    </div>
-  );
+function App(){
+ const [active,setActive]=useState("Dashboard");
+ const [command,setCommand]=useState("");
+ const [listening,setListening]=useState(false);
+ const [time,setTime]=useState(new Date());
+ useEffect(()=>{const id=setInterval(()=>setTime(new Date()),1000);return()=>clearInterval(id)},[]);
+ const dateText=useMemo(()=>time.toLocaleDateString("en-IN",{weekday:"long",day:"2-digit",month:"long",year:"numeric"}),[time]);
+ const send=(text=command)=>{if(!text.trim())return;setCommand("");setActive("Chat")};
+ return <div className="ultron-app">
+   <div className="scanlines"/>
+   <header className="topbar">
+     <div className="brand"><div className="brand-mark"><span>U</span></div><div><div className="brand-name">ULTRON AI <small>v2.0</small></div><div className="brand-sub">Hyper-Intelligent Platform. Your Strategic Quantum-Neural Partner.</div></div></div>
+     <div className="top-center"><div className="top-status"><span className="status-dot"/> SYSTEMS ONLINE</div><div className="top-title">ULTRON AI</div></div>
+     <div className="top-actions"><div className="system-pill">SECURITY ENFORCED</div><div className="clock"><strong>{time.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:true})}</strong><span>{dateText}</span></div><div className="window-actions"><span>—</span><span>□</span><span>×</span></div></div>
+   </header>
+   <div className="dashboard-grid">
+     <aside className="left-rail panel"><div className="rail-head">MAIN HUB</div><nav>{NAV.map(([icon,label])=><button key={label} className={active===label?"active":""} onClick={()=>setActive(label)}><span className="nav-icon">{icon}</span><span>{label}</span></button>)}</nav>
+       <div className="rail-core"><div className="mini-heading">ULTRON CORE</div><div className="core-orb"><span>U</span></div><strong>STABLE &amp; OPERATIONAL</strong></div>
+       <div className="voice-mini"><div className="mini-heading">VOICE STATUS</div><div className="wave">{Array.from({length:18}).map((_,i)=><i key={i} style={{height:`${12+((i*7)%24)}px`}}/>)}</div><span>{listening?"LISTENING...":"STANDBY"}</span></div>
+     </aside>
+     <main className="center-column">
+       <div className="hero-top"><div><div className="hello">Hello Mukund,</div><div className="hello-sub">Systems online and fully operational. I am ready to assist you.</div></div><div className="core-badge">CORE UPGRADE v2.0</div></div>
+       <section className="hero panel"><div className="hero-label left">ULTRON CORE <span>STABLE</span></div><div className="hero-label right">HOLOGRAPHIC DISPLAY <span>ACTIVE</span></div><div className="rings ring-1"/><div className="rings ring-2"/><div className="rings ring-3"/><div className="face-wrap" aria-label="ULTRON reference face"/><div className="platform"><span/><span/><span/></div><div className="hero-bottom-meta"><span>SCAN FRAME 02A</span><span>HOLOGRAPHIC LINK SECURE</span></div></section>
+       <section className="chat panel"><div className="section-title"><span>CHAT WITH ULTRON</span><em>LOCAL MODE</em></div><div className="messages"><div className="msg"><div className="msg-avatar">U</div><div><b>ULTRON</b><span>I can help you with file management, web browsing, code execution, data analysis, automation, and much more.</span></div></div><div className="msg user"><div className="msg-bubble">You: What can you do?</div></div></div><div className="command-bar"><input value={command} onChange={e=>setCommand(e.target.value)} onKeyDown={e=>e.key==="Enter"&&send()} placeholder="Type your command..."/><button onClick={()=>send()}>➤</button></div></section>
+     </main>
+     <aside className="right-rail">
+       <section className="panel card"><div className="section-title"><span>ACTIVE MODULES</span><em>6 ONLINE</em></div><div className="module-list">{MODULES.map(([name,state])=><div className="module-row" key={name}><span>{name}</span><b className={state==="ONLINE"?"online":"standby"}>{state}</b></div>)}</div></section>
+       <section className="panel card summary"><div className="section-title"><span>TODAY'S SUMMARY</span></div>{[["Tasks Completed","12"],["Files Analyzed","8"],["Commands Executed","26"],["Time Saved","2h 15m"]].map(([a,b])=><div className="metric-row" key={a}><span>{a}</span><b>{b}</b></div>)}</section>
+       <section className="panel card command-center"><div className="section-title"><span>COMMAND CENTER</span></div><button className={`mic ${listening?"listening":""}`} onClick={()=>setListening(v=>!v)}><div className="mic-rings"><span/><span/><span/></div><div className="mic-icon">◉</div><strong>{listening?"LISTENING...":"TAP TO SPEAK"}</strong></button><div className="mini-heading">SUGGESTED COMMANDS</div>{COMMANDS.map(item=><button className="suggest" key={item} onClick={()=>send(item)}><span>“{item}”</span><b>+</b></button>)}</section>
+       <section className="panel card quick"><div className="section-title"><span>QUICK ACCESS</span></div><div className="quick-grid">{QUICK.map(name=><button key={name} onClick={()=>setActive(name)}>{name}</button>)}</div></section>
+       <section className="panel card activity"><div className="section-title"><span>SYSTEM ACTIVITY</span><em>Reset</em></div><div className="activity-chart">{Array.from({length:8}).map((_,i)=><i key={i}/>)}</div>{[["Voice Recognition","Active"],["AI Processing","Active"],["Data Sync","Active"],["Background Tasks","Idle"]].map(([a,b])=><div className="activity-row" key={a}><span>{a}</span><b>{b}</b></div>)}</section>
+     </aside>
+   </div>
+   <footer className="footer"><span>ULTRON AI — Not just an Assistant. Your Strategic Quantum-Neural Partner.</span><span className="secure">◈ Secure | Private | Local</span></footer>
+ </div>
 }
-
-function App() {
-  const [active, setActive] = useState('Dashboard');
-  const [command, setCommand] = useState('');
-  const [events, setEvents] = useState(initialEvents);
-  const [listening, setListening] = useState(false);
-  const [processing, setProcessing] = useState(false);
-  const [chat, setChat] = useState([{ from: 'ultron', text: 'I can help you with file management, web browsing, code execution, data analysis, automation, and much more. Just give me a command.' }]);
-  const [now, setNow] = useState(new Date());
-  const inputRef = useRef(null);
-  const recognitionRef = useRef(null);
-  const processingTimerRef = useRef(null);
-  const recognitionSupported = useMemo(() => typeof window !== 'undefined' && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window), []);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-    const timer = setInterval(() => setNow(new Date()), 1000);
-    const keyboard = (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
-        event.preventDefault();
-        inputRef.current?.focus();
-      }
-      if (event.key === 'Escape') {
-        setCommand('');
-        setProcessing(false);
-      }
-    };
-    window.addEventListener('keydown', keyboard);
-    return () => {
-      clearInterval(timer);
-      window.removeEventListener('keydown', keyboard);
-      if (processingTimerRef.current) window.clearTimeout(processingTimerRef.current);
-    };
-  }, []);
-
-  const addEvent = (text) => setEvents((current) => [text, ...current].slice(0, 4));
-
-  const runCommand = (value = command) => {
-    const text = value.trim();
-    if (!text || processing) return;
-    setProcessing(true);
-    setChat((current) => [...current.slice(-3), { from: 'you', text }, { from: 'ultron', text: 'Command received. Processing request through ULTRON core...' }]);
-    addEvent(`AI Processing: ${text}`);
-    setCommand('');
-    processingTimerRef.current = window.setTimeout(() => {
-      setProcessing(false);
-      setChat((current) => [...current.slice(-3), { from: 'ultron', text: 'Processing complete. ULTRON core is standing by for the next command.' }]);
-      addEvent('Command execution complete');
-    }, 900);
-  };
-
-  const toggleVoice = () => {
-    if (listening && recognitionRef.current) {
-      recognitionRef.current.stop();
-      setListening(false);
-      addEvent('Voice Recognition stopped');
-      return;
-    }
-    if (!recognitionSupported) return addEvent('Voice Recognition unavailable');
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognition = new SpeechRecognition();
-    recognitionRef.current = recognition;
-    recognition.lang = 'en-IN';
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-    setListening(true);
-    addEvent('Voice Recognition listening');
-    recognition.onresult = (event) => {
-      setCommand(event.results[0][0].transcript);
-      setListening(false);
-      addEvent('Voice command captured');
-      inputRef.current?.focus();
-    };
-    recognition.onerror = () => { setListening(false); addEvent('Voice channel error'); };
-    recognition.onend = () => setListening(false);
-    recognition.start();
-  };
-
-  const chooseNav = (label) => {
-    setActive(label);
-    addEvent(`${label} module selected`);
-  };
-  const openQuick = (label) => addEvent(`Quick Access: ${label}`);
-  const formattedTime = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  const formattedDate = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
-
-  return (
-    <main className={`shell ${listening ? 'is-listening' : ''} ${processing ? 'is-processing' : ''}`}>
-      <header className="topbar">
-        <div className="brand"><div className="brand-orb">◈</div><div><strong>ULTRON AI</strong><small>COMMAND SYSTEM</small></div></div>
-        <div className="top-center"><strong>ULTRON AI <span>v2.0</span></strong><small>Hyper-Intelligent Platform. Your Strategic Quantum-Neural Partner.</small></div>
-        <div className="top-right"><div className="system-chip">SYSTEM STATUS <b><i /> ONLINE</b></div><div className="clock">{formattedTime}<small>{formattedDate}</small></div><div className="window">− □ ×</div></div>
-      </header>
-
-      <div className="app-grid">
-        <aside className="sidebar panel">
-          <nav>{navItems.map(([icon, label]) => <button key={label} className={active === label ? 'active' : ''} onClick={() => chooseNav(label)}><span>{icon}</span>{label}{active === label && <em />}</button>)}</nav>
-          <div className="voice-status"><div className="label">VOICE STATUS</div><div className="waveform">{Array.from({ length: 9 }, (_, i) => <span key={i} />)}</div><strong>{listening ? 'LISTENING...' : processing ? 'PROCESSING...' : 'STANDBY'}</strong></div>
-          <button className="power-card" onClick={toggleVoice}><div>◉</div><span>ULTRON SYSTEM<small>{listening ? 'Listening for Command' : processing ? 'Processing Command' : 'Ready for Command'}</small></span></button>
-        </aside>
-
-        <section className="workspace">
-          <div className="workspace-main">
-            <aside className="left-stack">
-              <section className="card core-card"><div className="card-title">ULTRON CORE <span>{processing ? 'PROCESSING ●' : 'AI SYSTEM ONLINE ●'}</span></div><h2>Hello Mukund.</h2><p>Systems online and fully operational. I am ready to assist you.</p><div className="version">Core Upgrade v2.0</div></section>
-              <section className="card metrics-card"><div className="card-title">SYSTEM METRICS</div>{[['GPU Usage','23%'],['Memory','45%'],['Disk Space','62%'],['Network','78%']].map(([label, value]) => <div className="meter" key={label}><div><span>{label}</span><b>{value}</b></div><i><u style={{ width: value }} /></i></div>)}</section>
-            </aside>
-
-            <section className="core-panel card">
-              <div className="panel-hud left">NEURAL CORE 98.8%</div><div className="panel-hud right">QUANTUM LINK SECURE</div>
-              <div className="face-stage"><div className="globe globe-a"/><div className="globe globe-b"/><div className="globe globe-c"/><div className="scan-grid"/><UltronFace/><div className="core-platform"><span/><span/><span/></div></div>
-            </section>
-
-            <aside className="right-stack">
-              <section className="card modules-card"><div className="card-title">ACTIVE MODULES <span className="plus">+</span></div>{modules.map(([icon, label, state]) => <div className="module" key={label}><span>{icon}</span><b>{label}</b><em className={state === 'ONLINE' ? 'online' : ''}>{state}</em></div>)}</section>
-              <section className="card summary-card"><div className="card-title">TODAY'S SUMMARY</div><div className="summary-row"><span>Tasks Completed</span><b>12</b></div><div className="summary-row"><span>Files Analyzed</span><b>8</b></div><div className="summary-row"><span>Commands Executed</span><b>26</b></div><div className="summary-row"><span>Time Saved</span><b>2h 15m</b></div></section>
-            </aside>
-
-            <section className="card chat-card"><div className="card-title">CHAT WITH ULTRON <span className="mode">LOCAL MODE</span></div><div className="chat-scroll">{chat.map((message, index) => <div className={`chat-row ${message.from}`} key={index}><span className="avatar-mini">U</span><div><b>{message.from === 'you' ? 'You:' : 'Ultron:'}</b> {message.text}</div></div>)}</div><div className="chat-input"><input ref={inputRef} value={command} onChange={(event) => setCommand(event.target.value)} onKeyDown={(event) => event.key === 'Enter' && runCommand()} placeholder="Type your command..."/><button onClick={() => runCommand()} disabled={processing}>➤</button></div></section>
-          </div>
-
-          <aside className="command-column">
-            <section className="card command-center"><div className="card-title">COMMAND CENTER</div><h3>Give me a command.</h3><button className="mic-button" onClick={toggleVoice}><div className="mic-core">◉</div><span>{listening ? 'LISTENING...' : processing ? 'PROCESSING...' : 'Tap to speak'}</span></button><div className="small-label">SUGGESTED COMMANDS</div>{suggested.map((item) => <button className="suggest" key={item} onClick={() => runCommand(item)} disabled={processing}>“{item}” <b>+</b></button>)}</section>
-            <section className="card quick-card"><div className="card-title">QUICK ACCESS</div><div className="quick-grid">{quick.map(([icon, label]) => <button key={label} onClick={() => openQuick(label)}><span>{icon}</span><small>{label}</small></button>)}</div></section>
-            <section className="card activity-card"><div className="card-title">SYSTEM ACTIVITY <button className="reset" type="button" onClick={() => setEvents(initialEvents)}>Reset</button></div><div className="activity-chart"/>{events.map((event, index) => <div className="activity-row" key={`${event}-${index}`}><i/><span>{event}<small>{index < 3 ? 'Active' : 'Idle'}</small></span></div>)}</section>
-          </aside>
-        </section>
-      </div>
-
-      <footer className="footer-strip">ULTRON AI — <strong>Not Just an Assistant. Your Strategic Quantum-Neural Partner.</strong></footer>
-    </main>
-  );
-}
-
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById("root")).render(<App/>);
