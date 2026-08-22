@@ -1,0 +1,1 @@
+The center ULTRON face must use the exact cropped master-reference visual from the user's supplied reference image. Do not substitute a drawn SVG, alternate robot design, or AI-generated face.
