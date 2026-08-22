@@ -1,0 +1,1 @@
+MASTER IMAGE SOURCE: /mnt/data/ultron-face-master-only.png. Copy the supplied master face image to public/ultron-face-master-only.png in the local project.
