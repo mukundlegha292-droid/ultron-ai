@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import "./style.css";
+import "./ultron-clean-ui.css";
 
 const NAV = [["⌂","Dashboard"],["◉","Chat"],["✓","Tasks"],["▣","Files"],["◌","Browser"],["⌘","Code"],["◈","System Tools"],["◇","Memory"],["⚙","Settings"]];
 const MODULES = [["AI Brain","ONLINE"],["Voice System","ONLINE"],["Memory Core","ONLINE"],["File System","ONLINE"],["Browser","ONLINE"],["Code Engine","STANDBY"]];
@@ -35,9 +35,9 @@ function App(){
      <aside className="right-rail">
        <section className="panel card"><div className="section-title"><span>ACTIVE MODULES</span><em>6 ONLINE</em></div><div className="module-list">{MODULES.map(([name,state])=><div className="module-row" key={name}><span>{name}</span><b className={state==="ONLINE"?"online":"standby"}>{state}</b></div>)}</div></section>
        <section className="panel card summary"><div className="section-title"><span>TODAY'S SUMMARY</span></div>{[["Tasks Completed","12"],["Files Analyzed","8"],["Commands Executed","26"],["Time Saved","2h 15m"]].map(([a,b])=><div className="metric-row" key={a}><span>{a}</span><b>{b}</b></div>)}</section>
-       <section className="panel card command-center"><div className="section-title"><span>COMMAND CENTER</span></div><button className={`mic ${listening?"listening":""}`} onClick={()=>setListening(v=>!v)}><div className="mic-rings"><span/><span/><span/></div><div className="mic-icon">◉</div><strong>{listening?"LISTENING...":"TAP TO SPEAK"}</strong></button><div className="mini-heading">SUGGESTED COMMANDS</div>{COMMANDS.map(item=><button className="suggest" key={item} onClick={()=>send(item)}><span>“{item}”</span><b>+</b></button>)}</section>
+       <section className="panel card command-center"><div className="section-title"><span>COMMAND CENTER</span></div><button className={`mic ${listening?"listening":""}`} onClick={()=>setListening(v=>!v)}><div className="mic-icon">◉</div><strong>{listening?"LISTENING...":"TAP TO SPEAK"}</strong></button><div className="mini-heading">SUGGESTED COMMANDS</div>{COMMANDS.map(item=><button className="suggest" key={item} onClick={()=>send(item)}><span>“{item}”</span><b>+</b></button>)}</section>
        <section className="panel card quick"><div className="section-title"><span>QUICK ACCESS</span></div><div className="quick-grid">{QUICK.map(name=><button key={name} onClick={()=>setActive(name)}>{name}</button>)}</div></section>
-       <section className="panel card activity"><div className="section-title"><span>SYSTEM ACTIVITY</span><em>Reset</em></div><div className="activity-chart">{Array.from({length:8}).map((_,i)=><i key={i}/>)}</div>{[["Voice Recognition","Active"],["AI Processing","Active"],["Data Sync","Active"],["Background Tasks","Idle"]].map(([a,b])=><div className="activity-row" key={a}><span>{a}</span><b>{b}</b></div>)}</section>
+       <section className="panel card activity"><div className="section-title"><span>SYSTEM ACTIVITY</span><em>Reset</em></div><div className="activity-chart"/>{[["Voice Recognition","Active"],["AI Processing","Active"],["Data Sync","Active"],["Background Tasks","Idle"]].map(([a,b])=><div className="activity-row" key={a}><span>{a}</span><b>{b}</b></div>)}</section>
      </aside>
    </div>
    <footer className="footer"><span>ULTRON AI — Not just an Assistant. Your Strategic Quantum-Neural Partner.</span><span className="secure">◈ Secure | Private | Local</span></footer>
