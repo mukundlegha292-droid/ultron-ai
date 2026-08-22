@@ -1,5 +1,6 @@
-/* Master reference face: do not redesign or substitute the center ULTRON visual. */
-.ultron-avatar{width:min(440px,100%);transform:none;filter:none;display:flex;justify-content:center;align-items:center;overflow:hidden}
+/* Master reference face: use the supplied reference visual; do not substitute a new design. */
+.ultron-avatar{width:min(440px,100%);height:480px;transform:none;filter:none;display:flex;justify-content:center;align-items:center;overflow:hidden;position:relative}
+.ultron-avatar::before{content:"";position:absolute;inset:0;background:url('/ultron-reference-face.svg') center/contain no-repeat;filter:drop-shadow(0 0 22px rgba(56,211,255,.38));z-index:3}
 .ultron-avatar .avatar-glow,.ultron-avatar .avatar-scanline,.ultron-avatar .ultron-face-svg{display:none!important}
-.ultron-reference-face{display:block;width:100%;height:auto;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 22px rgba(56,211,255,.38))}
-@media(max-width:900px){.ultron-avatar{width:min(440px,94vw)} }
+.ultron-reference-face{display:none!important}
+@media(max-width:900px){.ultron-avatar{width:min(440px,94vw);height:auto;aspect-ratio:250/273}}
