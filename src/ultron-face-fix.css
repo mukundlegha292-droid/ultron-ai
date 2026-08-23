@@ -1,37 +1,78 @@
-/* APPROVED MASTER REFERENCE COMPOSITION
-   The supplied core image already contains its own realistic circular energy shell,
-   particles and lower energy base. Do not add a second orbital system on top. */
+/* ULTRON MASTER INTERFACE — BLUE HOLOGRAPHIC CORE
+   Target: approved reference composition.
+   Remove the old wide orbital ellipses and replace them with contained circular HUD rings. */
+
 .hero{
+  position:relative !important;
   isolation:isolate !important;
-  min-height:0 !important;
   overflow:hidden !important;
+  display:grid !important;
+  place-items:center !important;
   background:
-    radial-gradient(circle at 50% 43%,rgba(22,178,255,.12),transparent 32%),
-    linear-gradient(180deg,rgba(6,18,31,.90),rgba(4,10,19,.95)) !important;
-}
-.hero:before,
-.hero .rings,
-.hero .platform,
-.face-wrap::after{
-  display:none !important;
-  content:none !important;
+    radial-gradient(circle at 50% 45%, rgba(20,188,255,.16) 0%, rgba(12,104,180,.10) 24%, transparent 46%),
+    linear-gradient(180deg, rgba(3,15,28,.96), rgba(1,7,15,.98)) !important;
 }
 
-/* Give the hero the same vertical breathing room as the approved reference. */
-.center-column{
-  grid-template-rows:62px minmax(500px,1fr) 150px !important;
+/* Completely remove the previous wide/elliptical ring system. */
+.hero .rings{display:none !important}
+
+/* Rebuild circular rings around the core only. */
+.hero:before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:50% !important;
+  top:49% !important;
+  width:min(520px,58%) !important;
+  height:min(520px,82%) !important;
+  transform:translate(-50%,-50%) !important;
+  border:1px solid rgba(45,214,255,.34) !important;
+  border-radius:50% !important;
+  background:
+    radial-gradient(circle, transparent 0 53%, rgba(32,205,255,.055) 54% 55%, transparent 56% 62%, rgba(39,215,255,.045) 63% 64%, transparent 65%),
+    repeating-conic-gradient(from 8deg, rgba(68,225,255,.72) 0deg 1.2deg, transparent 1.2deg 14deg);
+  -webkit-mask-image:radial-gradient(circle, transparent 0 41%, #000 44% 100%);
+  mask-image:radial-gradient(circle, transparent 0 41%, #000 44% 100%);
+  box-shadow:
+    0 0 24px rgba(36,209,255,.18),
+    0 0 0 10px rgba(29,164,235,.05),
+    0 0 0 22px rgba(30,191,255,.07),
+    0 0 0 38px rgba(37,143,255,.045);
+  animation:outerHudSpin 26s linear infinite;
+  pointer-events:none !important;
+  z-index:2 !important;
 }
 
+.hero:after{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:50% !important;
+  top:49% !important;
+  width:min(610px,67%) !important;
+  height:min(610px,92%) !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  border:1px dashed rgba(72,219,255,.22) !important;
+  box-shadow:0 0 36px rgba(44,204,255,.10) !important;
+  pointer-events:none !important;
+  z-index:1 !important;
+  animation:outerHudReverse 34s linear infinite;
+}
+
+/* Center the core slightly lower, matching the reference composition. */
 .face-wrap{
   position:relative !important;
   z-index:5 !important;
-  width:min(470px,58%) !important;
-  aspect-ratio:1/1 !important;
+  width:min(460px,54%) !important;
+  aspect-ratio:1 / 1 !important;
+  margin-top:28px !important;
   border-radius:50% !important;
   background:transparent !important;
-  box-shadow:0 0 26px rgba(40,205,255,.17),0 0 64px rgba(20,120,255,.10) !important;
-  animation:masterCoreFloat 5.6s ease-in-out infinite !important;
-  transform-origin:center !important;
+  box-shadow:
+    0 0 26px rgba(43,213,255,.22),
+    0 0 62px rgba(21,127,255,.14) !important;
+  animation:masterCoreFloat 5.4s ease-in-out infinite !important;
 }
 
 .face-image{
@@ -40,35 +81,87 @@
   height:100% !important;
   object-fit:contain !important;
   object-position:center !important;
-  filter:drop-shadow(0 0 14px rgba(50,214,255,.30)) drop-shadow(0 0 34px rgba(25,120,255,.14)) !important;
-  animation:masterCorePulse 3.6s ease-in-out infinite !important;
+  filter:
+    saturate(1.08)
+    brightness(1.02)
+    drop-shadow(0 0 14px rgba(51,218,255,.34))
+    drop-shadow(0 0 38px rgba(18,122,255,.16)) !important;
+  animation:masterCorePulse 3.4s ease-in-out infinite !important;
 }
 
-/* Only the contained circular halo visible in the approved reference. */
 .face-wrap::before{
   content:"" !important;
   position:absolute !important;
-  inset:-4% !important;
+  inset:-3% !important;
   border-radius:50% !important;
-  border:1px solid rgba(84,220,255,.16) !important;
-  box-shadow:0 0 24px rgba(52,213,255,.10) !important;
+  border:1px solid rgba(80,225,255,.18) !important;
+  box-shadow:
+    0 0 26px rgba(43,218,255,.12),
+    inset 0 0 22px rgba(41,194,255,.08) !important;
   pointer-events:none !important;
 }
 
-@keyframes masterCoreFloat{
-  0%,100%{transform:translate3d(0,0,0) scale(1)}
-  50%{transform:translate3d(0,-5px,0) scale(1.008)}
-}
-@keyframes masterCorePulse{
-  0%,100%{filter:brightness(.98) saturate(1)}
-  50%{filter:brightness(1.06) saturate(1.05)}
+.face-wrap::after{display:none !important;content:none !important}
+
+/* Reference-like energy platform: concentric blue rings directly beneath the core. */
+.platform{
+  display:block !important;
+  position:absolute !important;
+  z-index:4 !important;
+  left:50% !important;
+  bottom:6% !important;
+  transform:translateX(-50%) !important;
+  width:min(610px,74%) !important;
+  height:82px !important;
+  border:0 !important;
+  border-radius:50% !important;
+  background:
+    radial-gradient(ellipse at center, rgba(47,222,255,.30) 0%, rgba(24,148,231,.14) 22%, rgba(5,51,93,.10) 42%, transparent 70%) !important;
+  box-shadow:none !important;
 }
 
+.platform::before,.platform::after{
+  content:"" !important;
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  border-radius:50% !important;
+  border:1px solid rgba(77,222,255,.58) !important;
+  box-shadow:0 0 16px rgba(55,214,255,.22) !important;
+}
+.platform::before{width:70%;height:46% !important}
+.platform::after{width:48%;height:28% !important}
+.platform span{height:3px !important;background:rgba(91,226,255,.72) !important;box-shadow:0 0 15px rgba(78,223,255,.65) !important}
+.platform span:nth-child(1){width:55% !important;bottom:8px !important}
+.platform span:nth-child(2){width:76% !important;bottom:3px !important;opacity:.60}
+.platform span:nth-child(3){width:34% !important;bottom:14px !important;opacity:.82}
+
+/* Remove all purple/secondary accent feel from the hero/activity layer. */
+.activity-chart:before{
+  background:linear-gradient(150deg,
+    transparent 0 9%, rgba(83,224,255,.45) 9% 10%, transparent 10% 22%,
+    rgba(68,199,255,.38) 22% 23%, transparent 23% 35%,
+    rgba(75,217,255,.42) 35% 36%, transparent 36% 53%,
+    rgba(57,188,255,.36) 53% 54%, transparent 54% 68%,
+    rgba(77,222,255,.44) 68% 69%, transparent 69%) !important;
+}
+
+.hello,.top-title,.brand-name{color:#e7f8ff !important}
+.hero-label span,.section-title em,.online{color:#5ff0bd !important}
+
+@keyframes outerHudSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes outerHudReverse{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+@keyframes masterCoreFloat{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-6px,0) scale(1.008)}}
+@keyframes masterCorePulse{0%,100%{filter:saturate(1.04) brightness(1)}50%{filter:saturate(1.14) brightness(1.08)}}
+
 @media (max-width:1100px){
-  .center-column{grid-template-rows:62px minmax(460px,1fr) 150px !important}
-  .face-wrap{width:min(440px,62%) !important}
+  .face-wrap{width:min(430px,60%) !important}
+  .hero:before{width:min(500px,62%) !important;height:min(500px,84%) !important}
+  .hero:after{width:min(560px,69%) !important;height:min(560px,92%) !important}
 }
 @media (max-width:820px){
-  .center-column{grid-template-rows:auto 460px 168px !important}
-  .face-wrap{width:min(390px,74vw) !important}
+  .face-wrap{width:min(360px,72vw) !important;margin-top:16px !important}
+  .hero:before{width:78vw !important;height:78vw !important;max-width:430px !important;max-height:430px !important}
+  .hero:after{width:88vw !important;height:88vw !important;max-width:500px !important;max-height:500px !important}
 }
