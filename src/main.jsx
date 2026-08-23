@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
+import "./ultron-face-fix.css";
 
 const NAV = [["⌂","Dashboard"],["◉","Chat"],["✓","Tasks"],["▣","Files"],["◌","Browser"],["⌘","Code"],["◈","System Tools"],["◇","Memory"],["⚙","Settings"]];
 const MODULES = [["AI Brain","ONLINE"],["Voice System","ONLINE"],["Memory Core","ONLINE"],["File System","ONLINE"],["Browser","ONLINE"],["Code Engine","STANDBY"]];
