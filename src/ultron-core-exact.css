@@ -1,0 +1,33 @@
+:root{--core-cyan:#3ce8ff;--core-blue:#147bff;--core-deep:#020812}
+
+/* EXACT-CORE OVERRIDE: remove the old elliptical orbit system completely. */
+.hero{isolation:isolate;background:radial-gradient(circle at 50% 48%,rgba(25,183,255,.16) 0%,rgba(8,55,86,.08) 22%,transparent 46%),linear-gradient(180deg,rgba(6,18,31,.94),rgba(3,9,17,.96))!important}
+.hero:before{content:none!important;display:none!important}
+.hero .rings{display:none!important}
+
+.face-wrap{position:absolute!important;z-index:5!important;left:50%!important;top:48%!important;width:360px!important;height:360px!important;aspect-ratio:auto!important;transform:translate(-50%,-50%)!important;background:radial-gradient(circle at 50% 45%,rgba(9,25,47,.98) 0 42%,rgba(3,9,18,.98) 48%,transparent 49%),conic-gradient(from 205deg,transparent 0deg,rgba(30,133,255,.18) 14deg,rgba(61,239,255,.95) 30deg,rgba(21,111,255,.75) 62deg,transparent 78deg,transparent 116deg,rgba(56,228,255,.9) 144deg,rgba(36,115,255,.8) 190deg,transparent 214deg,transparent 265deg,rgba(56,231,255,.88) 294deg,rgba(28,102,255,.72) 330deg,transparent 355deg),radial-gradient(circle,rgba(16,104,180,.25),transparent 67%)!important;border:0!important;border-radius:50%!important;box-shadow:0 0 22px rgba(57,226,255,.36),0 0 58px rgba(31,128,255,.28),0 0 100px rgba(37,110,255,.14),inset 0 0 34px rgba(63,231,255,.12)!important;filter:saturate(1.22) contrast(1.08)!important;animation:ultronCoreFloat 5.4s ease-in-out infinite,ultronCorePulse 3.2s ease-in-out infinite!important;will-change:transform,filter}
+
+/* Inner realistic glass/energy surface. */
+.face-wrap:before{content:""!important;position:absolute!important;inset:8%!important;border-radius:50%!important;background:radial-gradient(circle at 46% 35%,rgba(46,191,255,.18),transparent 28%),radial-gradient(circle at 54% 60%,rgba(0,27,61,.9) 0 48%,rgba(2,8,18,.98) 65%),repeating-radial-gradient(circle at 50% 50%,rgba(78,218,255,.10) 0 1px,transparent 1px 6px)!important;box-shadow:inset 0 0 28px rgba(65,223,255,.18),inset 0 0 70px rgba(22,92,190,.18),0 0 18px rgba(43,205,255,.18)!important;animation:ultronSurface 4.8s ease-in-out infinite!important}
+
+/* Clean luminous shell + particle texture, without orbit ellipses. */
+.face-wrap:after{content:""!important;position:absolute!important;inset:1%!important;border-radius:50%!important;background:radial-gradient(circle at 50% 50%,transparent 0 47%,rgba(62,227,255,.55) 48%,rgba(30,132,255,.95) 49%,transparent 51%),radial-gradient(circle at 19% 30%,rgba(117,239,255,.95) 0 1px,transparent 2px),radial-gradient(circle at 23% 63%,rgba(70,210,255,.8) 0 1px,transparent 2px),radial-gradient(circle at 72% 25%,rgba(114,238,255,.9) 0 1px,transparent 2px),radial-gradient(circle at 80% 60%,rgba(67,206,255,.85) 0 1px,transparent 2px),radial-gradient(circle at 31% 77%,rgba(89,223,255,.75) 0 1px,transparent 2px),radial-gradient(circle at 68% 82%,rgba(74,223,255,.8) 0 1px,transparent 2px),radial-gradient(circle at 86% 40%,rgba(114,239,255,.7) 0 1px,transparent 2px)!important;filter:drop-shadow(0 0 8px rgba(63,222,255,.28));animation:ultronShell 9s linear infinite!important;pointer-events:none}
+
+/* Fine radial HUD marks stay circular and contained around the core. */
+.hero:after{content:"";position:absolute;left:50%;top:48%;width:430px;height:430px;transform:translate(-50%,-50%);border:1px solid rgba(67,220,255,.18);border-radius:50%;box-shadow:0 0 34px rgba(55,214,255,.08),inset 0 0 28px rgba(55,214,255,.05);animation:ultronHaloRotate 14s linear infinite;pointer-events:none;z-index:2}
+
+.platform{z-index:4!important;bottom:7%!important;width:48%!important;height:58px!important;border:0!important;border-radius:50%!important;background:radial-gradient(ellipse at center,rgba(66,224,255,.24) 0 7%,rgba(55,196,255,.12) 20%,transparent 67%)!important;box-shadow:0 0 34px rgba(55,214,255,.12)!important}
+.platform:before{content:"";position:absolute;inset:17% 7%;border:1px solid rgba(88,222,255,.45);border-radius:50%;box-shadow:0 0 18px rgba(76,217,255,.2)}
+.platform:after{content:"";position:absolute;inset:31% 19%;border:1px solid rgba(111,234,255,.62);border-radius:50%;box-shadow:0 0 18px rgba(87,226,255,.42)}
+.platform span{z-index:3!important;height:4px!important;background:rgba(99,229,255,.78)!important;box-shadow:0 0 18px rgba(89,220,255,.86)!important}
+.platform span:nth-child(1){width:56%!important}
+.platform span:nth-child(2){width:76%!important;bottom:8px!important;opacity:.58}
+.platform span:nth-child(3){width:34%!important;bottom:15px!important;opacity:.82}
+
+@keyframes ultronCoreFloat{0%,100%{transform:translate(-50%,-50%) translate3d(0,0,0) scale(1)}50%{transform:translate(-50%,-50%) translate3d(0,-7px,0) scale(1.012)}}
+@keyframes ultronCorePulse{0%,100%{filter:saturate(1.16) contrast(1.05) drop-shadow(0 0 18px rgba(52,218,255,.28))}50%{filter:saturate(1.26) contrast(1.1) drop-shadow(0 0 28px rgba(52,228,255,.46))}}
+@keyframes ultronSurface{0%,100%{transform:scale(.992);opacity:.88}50%{transform:scale(1.01);opacity:1}}
+@keyframes ultronShell{from{transform:rotate(0deg) scale(1)}to{transform:rotate(360deg) scale(1.015)}}
+@keyframes ultronHaloRotate{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+@media(max-width:820px){.face-wrap{width:300px!important;height:300px!important}.hero:after{width:360px;height:360px}.platform{width:58%!important}}
