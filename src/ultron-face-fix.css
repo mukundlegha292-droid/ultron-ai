@@ -1,1 +1,19 @@
-.face-wrap{background-image:url('/ultron-face-master-only.png') !important;background-position:center;background-size:contain;background-repeat:no-repeat;display:block;opacity:1 !important;visibility:visible !important;}
+.face-wrap{
+  position:relative;
+  z-index:4;
+  width:min(360px,48%);
+  aspect-ratio:1/1;
+  background:url('/ultron-orb-face-animated.webp') center/contain no-repeat;
+  filter:drop-shadow(0 0 14px rgba(48,213,255,.60)) drop-shadow(0 0 34px rgba(43,119,255,.28));
+  animation:ultronFloat 4.6s ease-in-out infinite,ultronPulse 2.8s ease-in-out infinite;
+  transform-origin:center;
+  will-change:transform,filter;
+}
+.face-wrap::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(85,214,255,.20) 0 26%,rgba(38,149,255,.10) 43%,transparent 70%);filter:blur(7px);animation:ultronGlow 2.8s ease-in-out infinite;pointer-events:none}
+.face-wrap::after{content:"";position:absolute;inset:5%;border-radius:50%;border:1px solid rgba(88,222,255,.28);box-shadow:0 0 18px rgba(60,213,255,.16),inset 0 0 22px rgba(58,203,255,.08);animation:ultronRing 10s linear infinite;pointer-events:none}
+@keyframes ultronFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-8px,0)}}
+@keyframes ultronPulse{0%,100%{filter:drop-shadow(0 0 12px rgba(48,213,255,.52)) drop-shadow(0 0 28px rgba(43,119,255,.22))}50%{filter:drop-shadow(0 0 18px rgba(48,213,255,.74)) drop-shadow(0 0 42px rgba(43,119,255,.34))}}
+@keyframes ultronGlow{0%,100%{opacity:.62;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+@keyframes ultronRing{from{transform:rotate(0deg) scale(.98)}to{transform:rotate(360deg) scale(1.02)}}
+.hero:hover .face-wrap{transform:translateY(-7px) scale(1.035)}
+@media (max-width:820px){.face-wrap{width:310px;max-width:65vw}}
